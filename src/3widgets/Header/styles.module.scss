@@ -1,12 +1,14 @@
 .Header {
     position: sticky;
+    top: 10px;
     display: flex;
     justify-content: space-between;
     padding: 0.33em 1.4em;
     border-radius: 32px;
-    @include text("GolosText", 400, 22px, var(--c6));
-    background-color: var(--c1);
     margin-bottom: 15px;
+    background-color: var(--c1);
+    z-index: 10000;
+    @include text("GolosText", 400, 22px, var(--c6));
 }
 
 .LogoWrapper {
@@ -33,9 +35,11 @@
     gap: 2.4em;
     display: flex;
     align-items: center;
-
-    a:nth-child(3),
-    a:nth-child(4) {
-        font-weight: 500;
+    a {
+        @include linkHover;
+        &:nth-child(3),
+        &:nth-child(4) {
+            font-weight: 500;
+        }
     }
 }

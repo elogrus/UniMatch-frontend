@@ -1,0 +1,35 @@
+.Footer {
+    display: flex;
+    justify-content: space-between;
+    background-color: var(--c5);
+    padding: 3.3em 2.6em 7.8em;
+    border-top-right-radius: 32px;
+    border-top-left-radius: 32px;
+    margin-top: 24px;
+    @include text("GolosText", 400, 18px, var(--c4));
+
+    img {
+        max-width: 14.6em;
+    }
+}
+.LinksContainer {
+    display: flex;
+    gap: 4.4em;
+    padding-right: 15%;
+    & > div {
+        display: flex;
+        flex-direction: column;
+        gap: 1em;
+        & > span {
+            height: 1em;
+        }
+
+        a {
+            text-decoration: underline;
+            @include linkHover();
+            &:after {
+                content: " →";
+            }
+        }
+    }
+}

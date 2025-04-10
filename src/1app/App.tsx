@@ -1,7 +1,9 @@
-import { BrowserRouter, Route, Routes } from "react-router";
-import "./App.scss";
-import { Welcome } from "@/2pages/Welcome";
+import { AboutProject } from "@/2pages/AboutProject";
+import { Footer } from "@/3widgets/Footer";
 import { Header } from "@/3widgets/Header";
+import { BrowserRouter, Outlet, Route, Routes } from "react-router";
+import "./App.scss";
+import { Main } from "@/2pages/Main";
 
 function App() {
     return (
@@ -18,8 +20,17 @@ function App() {
                         />
                     </Route> */}
 
-                    <Route element={<Header />}>
-                        <Route path="/" element={<Welcome />} />
+                    <Route
+                        element={
+                            <>
+                                <Header />
+                                <Outlet />
+                                <Footer />
+                            </>
+                        }
+                    >
+                        <Route path="/" element={<Main />} />
+                        <Route path="/about" element={<AboutProject />} />
                     </Route>
                 </Routes>
                 {/* </Provider> */}

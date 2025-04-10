@@ -1,0 +1,80 @@
+.Main {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.Title {
+    @include text("GolosText", 600, 36px, var(--c4));
+    margin-bottom: 0.8em;
+    padding-left: 1.2em;
+}
+
+.Text {
+    @include text("GolosText", 400, 26px);
+}
+
+.TextBlock {
+    display: flex;
+    justify-content: space-between;
+    gap: 0.7em;
+    border-radius: 32px;
+    background-color: var(--c5);
+    margin-bottom: 2.7em;
+    @extend .Text;
+
+    img {
+        object-fit: contain;
+        object-position: 0 0;
+        max-width: 55%;
+        width: fit-content;
+    }
+    & > div {
+        display: flex;
+        flex-direction: column;
+        gap: 1em;
+        padding: 1.8em 2.4em 2.8em;
+    }
+}
+
+.First {
+    border-radius: 32px;
+    position: relative;
+    background-image: url("./assets/first.png");
+    background-position-x: center;
+    object-fit: contain;
+    min-height: 80vh;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    padding: 0.5em;
+    @include text("GolosText", 600, 68px, var(--c1));
+    h2 {
+        max-width: 70%;
+    }
+
+    a {
+        font-size: 48px;
+        @include linkHover();
+        background-color: var(--c6);
+        padding: 0.15em 0;
+        border-radius: 0.5em;
+        width: 8.2em;
+        text-align: center;
+    }
+}
+
+.WeMade {
+    background-color: transparent;
+    & > div {
+        background-color: var(--c5);
+        border-radius: 32px;
+    }
+
+    img {
+        object-fit: cover;
+        object-position: 0 0;
+        border-radius: 32px;
+        max-width: 50%;
+    }
+}

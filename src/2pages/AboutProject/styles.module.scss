@@ -1,4 +1,4 @@
-.Welcome {
+.AboutProject {
     display: flex;
     flex-direction: column;
     gap: 15px;
@@ -64,26 +64,26 @@
 }
 
 .MadeIn {
-    @include text("GolosText", 400, 25px, var(--c6));
     display: flex;
-    justify-content: space-between;
     gap: 24px;
+    @include text("GolosText", 400, 32px, var(--c6));
     & > * {
         display: flex;
         align-items: center;
         justify-content: center;
-        padding: 1% 5%;
+        padding: 3% 5%;
         border-radius: 32px;
         background-color: var(--c7);
 
         &:nth-child(1) {
+            width: 100%;
             background-color: var(--c1);
-            width: 60%;
+            max-width: 60%;
             img {
-                padding: 0 10%;
-                height: 80%;
+                max-height: 2.5em;
             }
             span {
+                margin-right: 0.8em;
                 text-wrap: nowrap;
             }
         }

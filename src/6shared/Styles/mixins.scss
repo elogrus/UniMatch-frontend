@@ -1,8 +1,18 @@
-@mixin text($family: "GolosText", $weight: 400, $font-size: inherit, $color: var(--c2), $line-height: inherit, $letter-spacing: 0) {
+@mixin text($family: "GolosText", $weight: 400, $font-size: inherit, $color: var(--c2), $line-height: 125%, $letter-spacing: 0) {
     font-family: $family, sans-serif;
     font-weight: $weight;
     line-height: $line-height;
     color: $color;
     font-size: $font-size;
     letter-spacing: $letter-spacing;
+}
+
+@mixin linkHover() {
+    transition: opacity 0.15s ease;
+    &:hover {
+        opacity: 0.9;
+    }
+    &:active {
+        opacity: 0.8;
+    }
 }

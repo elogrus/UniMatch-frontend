@@ -1,16 +1,16 @@
-import cls from "./styles.module.scss";
-import { compareClasses as cmcl } from "@/6shared/ClassNames";
-import Preview from "./assets/preview.png";
-import Photo from "./assets/photo.png";
 import UnitLogo from "@/6shared/Assets/unit_logo.svg";
+import { compareClasses as cmcl } from "@/6shared/ClassNames";
 import Exeutica from "./assets/exeutica.png";
+import Photo from "./assets/photo.png";
+import LittleRoadmap from "@/6shared/Assets/littleRoadmap.png";
 import Y from "./assets/y.svg";
+import cls from "./styles.module.scss";
 
-interface WelcomeProps {
+interface AboutProjectProps {
     className?: string;
 }
 
-export const Welcome = (props: WelcomeProps) => {
+export const AboutProject = (props: AboutProjectProps) => {
     const { className, ...otherProps } = props;
     const TEAM: { img: string; name: string; role: string }[] = [
         {
@@ -31,7 +31,7 @@ export const Welcome = (props: WelcomeProps) => {
     ];
     return (
         <div
-            className={cmcl(cls.Welcome, {}, [className as string])}
+            className={cmcl(cls.AboutProject, {}, [className as string])}
             {...otherProps}
         >
             <div className={cls.First}>
@@ -49,7 +49,7 @@ export const Welcome = (props: WelcomeProps) => {
                     </p>
                 </div>
                 <div>
-                    <img src={Preview} alt="Превью" />
+                    <img src={LittleRoadmap} alt="Превью" />
                 </div>
             </div>
             <div className={cls.Team}>
