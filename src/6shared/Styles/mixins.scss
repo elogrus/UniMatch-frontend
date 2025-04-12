@@ -1,0 +1,8 @@
+@mixin text($family: "GolosText", $weight: 400, $font-size: inherit, $color: var(--c2), $line-height: inherit, $letter-spacing: 0) {
+    font-family: $family, sans-serif;
+    font-weight: $weight;
+    line-height: $line-height;
+    color: $color;
+    font-size: $font-size;
+    letter-spacing: $letter-spacing;
+}

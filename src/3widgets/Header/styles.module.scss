@@ -1,0 +1,41 @@
+.Header {
+    position: sticky;
+    display: flex;
+    justify-content: space-between;
+    padding: 0.33em 1.4em;
+    border-radius: 32px;
+    @include text("GolosText", 400, 22px, var(--c6));
+    background-color: var(--c1);
+    margin-bottom: 15px;
+}
+
+.LogoWrapper {
+    display: flex;
+    align-items: center;
+    gap: 0.93em;
+
+    img:first-child {
+        width: 1.9em;
+    }
+
+    img:last-child {
+        width: 7.7em;
+    }
+
+    span {
+        height: 100%;
+        width: 1px;
+        background-color: var(--c6);
+    }
+}
+
+.Navbar {
+    gap: 2.4em;
+    display: flex;
+    align-items: center;
+
+    a:nth-child(3),
+    a:nth-child(4) {
+        font-weight: 500;
+    }
+}
