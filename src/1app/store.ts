@@ -1,8 +1,9 @@
+import headerReducer from "@/3widgets/Header/headerSlice";
+import footerReducer from "@/3widgets/Footer/footerSlice";
 import { configureStore } from "@reduxjs/toolkit";
 import { useDispatch, useSelector } from "react-redux";
-
 export const store = configureStore({
-    reducer: {},
+    reducer: { header: headerReducer, footer: footerReducer },
 });
 
 // Infer the type of `store`

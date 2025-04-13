@@ -1,8 +1,10 @@
+import { HeaderModes, HeaderThemes } from "@/3widgets/Header/types";
+import LittleRoadmap from "@/6shared/Assets/littleRoadmap.png";
 import UnitLogo from "@/6shared/Assets/unit_logo.svg";
 import { compareClasses as cmcl } from "@/6shared/ClassNames";
+import { usePage } from "@/6shared/Hooks/usePage";
 import Exeutica from "./assets/exeutica.png";
 import Photo from "./assets/photo.png";
-import LittleRoadmap from "@/6shared/Assets/littleRoadmap.png";
 import Y from "./assets/y.svg";
 import cls from "./styles.module.scss";
 
@@ -12,6 +14,10 @@ interface AboutProjectProps {
 
 export const AboutProject = (props: AboutProjectProps) => {
     const { className, ...otherProps } = props;
+    usePage(
+        { visible: true, mode: HeaderModes.FULL, theme: HeaderThemes.DARK },
+        { visible: true }
+    );
     const TEAM: { img: string; name: string; role: string }[] = [
         {
             img: Photo,

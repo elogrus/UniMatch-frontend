@@ -2,6 +2,8 @@ import cls from "./styles.module.scss";
 import { compareClasses as cmcl } from "@/6shared/ClassNames";
 import BigLogo from "@/6shared/Assets/bigLogo.svg";
 import { Link } from "react-router";
+import { selectFooterVisibile } from "./footerSlice";
+import { useAppSelector } from "@/1app/store";
 
 interface FooterProps {
     className?: string;
@@ -9,8 +11,10 @@ interface FooterProps {
 
 export const Footer = (props: FooterProps) => {
     const { className, ...otherProps } = props;
+    const visible = useAppSelector(selectFooterVisibile);
     return (
         <div
+            style={{ display: visible ? "flex" : "none" }}
             className={cmcl(cls.Footer, {}, [className as string])}
             {...otherProps}
         >

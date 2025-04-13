@@ -1,0 +1,28 @@
+.LongLogo {
+    display: flex;
+    align-items: center;
+    gap: 0.93em;
+
+    img:first-child {
+        width: 1.9em;
+    }
+
+    img:last-child {
+        width: 7.7em;
+    }
+
+    span {
+        height: 100%;
+        width: 1px;
+        background-color: #000000;
+    }
+}
+
+.LongLogoDark {
+    filter: invert(0%) sepia(6%) saturate(6078%) hue-rotate(7deg) brightness(100%) contrast(89%);
+
+}
+
+.LongLogoLight {
+    filter: invert(100%) sepia(9%) saturate(7457%) hue-rotate(291deg) brightness(112%) contrast(106%);
+}

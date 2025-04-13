@@ -6,29 +6,12 @@
     padding: 0.33em 1.4em;
     border-radius: 32px;
     margin-bottom: 15px;
-    background-color: var(--c1);
     z-index: 10000;
     @include text("GolosText", 400, 22px, var(--c6));
 }
 
-.LogoWrapper {
-    display: flex;
-    align-items: center;
-    gap: 0.93em;
-
-    img:first-child {
-        width: 1.9em;
-    }
-
-    img:last-child {
-        width: 7.7em;
-    }
-
-    span {
-        height: 100%;
-        width: 1px;
-        background-color: var(--c6);
-    }
+.HeaderDark {
+    background-color: var(--c1);
 }
 
 .Navbar {

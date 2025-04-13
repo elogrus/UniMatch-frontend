@@ -1,8 +1,14 @@
-import Logo from "@/6shared/Assets/logo.svg";
-import Unimatch from "@/6shared/Assets/unimatch.svg";
 import { compareClasses as cmcl } from "@/6shared/ClassNames";
 import { Link } from "react-router";
 import cls from "./styles.module.scss";
+import { LongLogo } from "@/6shared/UI/LongLogo";
+import { useAppSelector } from "@/1app/store";
+import {
+    selectHeaderMode,
+    selectHeaderTheme,
+    selectHeaderVisibile,
+} from "./headerSlice";
+import { HeaderModes, HeaderThemes } from "./types";
 
 interface HeaderProps {
     className?: string;
@@ -10,22 +16,35 @@ interface HeaderProps {
 
 export const Header = (props: HeaderProps) => {
     const { className, ...otherProps } = props;
-    console.log("header rerender");
+    const visible = useAppSelector(selectHeaderVisibile);
+    const mode = useAppSelector(selectHeaderMode);
+    const theme = useAppSelector(selectHeaderTheme);
+    console.log("HEADER MODE", visible);
     return (
         <div
-            className={cmcl(cls.Header, {}, [className as string])}
+            style={{ display: visible ? "flex" : "none" }}
+            className={cmcl(
+                cls.Header,
+                {
+                    [cls.HeaderDark]: theme === HeaderThemes.DARK,
+                    [cls.HeaderLight]: theme === HeaderThemes.LIGHT,
+                },
+                [className as string]
+            )}
             {...otherProps}
         >
-            <div className={cls.LogoWrapper}>
-                <img src={Logo} alt="Логотип" />
-                <span></span>
-                <img src={Unimatch} alt="Uni match" />
-            </div>
-            <nav className={cls.Navbar}>
+            <LongLogo theme={theme} />
+            <nav
+                className={cls.Navbar}
+                style={{
+                    visibility:
+                        mode === HeaderModes.FULL ? "visible" : "hidden",
+                }}
+            >
                 <Link to="about">О проекте</Link>
                 <Link to="..">Правила</Link>
                 <Link to="">Регистрация</Link>
-                <Link to="">Вход</Link>
+                <Link to="login">Вход</Link>
             </nav>
         </div>
     );

@@ -1,9 +1,11 @@
-import cls from "./styles.module.scss";
-import { compareClasses as cmcl } from "@/6shared/ClassNames";
-import { Link } from "react-router";
-import WeMade from "./assets/wemade.png";
+import { HeaderModes, HeaderThemes } from "@/3widgets/Header/types";
 import LittleRoadmap from "@/6shared/Assets/littleRoadmap.png";
+import { compareClasses as cmcl } from "@/6shared/ClassNames";
+import { usePage } from "@/6shared/Hooks/usePage";
+import { Link } from "react-router";
 import People from "./assets/people.png";
+import WeMade from "./assets/wemade.png";
+import cls from "./styles.module.scss";
 
 interface MainProps {
     className?: string;
@@ -11,6 +13,10 @@ interface MainProps {
 
 export const Main = (props: MainProps) => {
     const { className, ...otherProps } = props;
+    usePage(
+        { visible: true, mode: HeaderModes.FULL, theme: HeaderThemes.DARK },
+        { visible: true }
+    );
     return (
         <div
             className={cmcl(cls.Main, {}, [className as string])}
@@ -54,9 +60,8 @@ export const Main = (props: MainProps) => {
 
                 <h2 className={cls.Title}>А зачем?</h2>
                 <div className={cls.TextBlock}>
-                    
                     <div>
-                        <p>
+                        {/* <p>
                             Общение — базовая потребность человека. И мы
                             придумали новую форму для него)
                         </p>
@@ -64,7 +69,8 @@ export const Main = (props: MainProps) => {
                             А ещё это отличный способ найти неожиданные
                             знакомства которые изменят вашу жизнь (или просто
                             сделают её интересней)
-                        </p>
+                        </p> */}
+                        <p>да хуй знает я ебал</p>
                     </div>
                     <img src={People} />
                 </div>
