@@ -55,7 +55,7 @@
 
     a {
         font-size: 48px;
-        @include linkHover();
+        @include hoverAndActive();
         background-color: var(--c6);
         padding: 0.15em 0;
         border-radius: 0.5em;

@@ -1,10 +1,8 @@
 import { HeaderModes, HeaderThemes } from "@/3widgets/Header/types";
+import { LoginFormEmail } from "@/3widgets/LoginFormEmail";
 import { compareClasses as cmcl } from "@/6shared/ClassNames";
 import { usePage } from "@/6shared/Hooks/usePage";
 import cls from "./styles.module.scss";
-import { Input } from "@/6shared/UI/Input";
-import { useState } from "react";
-import { Button, ButtonThemes } from "@/6shared/UI/Button";
 
 interface LoginProps {
     className?: string;
@@ -13,21 +11,20 @@ interface LoginProps {
 export const Login = (props: LoginProps) => {
     const { className, ...otherProps } = props;
     usePage(
-        { visible: true, mode: HeaderModes.MINI, theme: HeaderThemes.LIGHT },
+        {
+            visible: true,
+            mode: HeaderModes.MINI,
+            theme: HeaderThemes.LIGHT,
+            position: "fixed",
+        },
         { visible: false }
     );
-    const form = useState({
-        email: "",
-        password: "",
-    });
     return (
         <div
-            className={cmcl(cls.Login, {}, [className as string])}
+            className={cmcl(cls.Login, {}, ["no-padding", className])}
             {...otherProps}
         >
-            <Input type="email" placeholder="Введите email" />
-            <Input placeholder="Введите пароль" />
-            <Button theme={ButtonThemes.BLACK_TRANSPARENT}>asd</Button>
+            <LoginFormEmail />
         </div>
     );
 };

@@ -6,12 +6,14 @@ export interface HeaderState {
     visible: boolean;
     theme: HeaderThemes;
     mode: HeaderModes;
+    position: "fixed" | "sticky";
 }
 
 const initialState: HeaderState = {
     visible: true,
     theme: HeaderThemes.DARK,
     mode: HeaderModes.FULL,
+    position: "sticky",
 };
 
 export const HeaderSlice = createSlice({
@@ -26,8 +28,10 @@ export const HeaderSlice = createSlice({
 
 export const { setup } = HeaderSlice.actions;
 
+export const selectHeader = (state: RootState) => state.header;
 export const selectHeaderVisibile = (state: RootState) => state.header.visible;
 export const selectHeaderTheme = (state: RootState) => state.header.theme;
 export const selectHeaderMode = (state: RootState) => state.header.mode;
+export const selectHeaderPosition = (state: RootState) => state.header.position;
 
 export default HeaderSlice.reducer;

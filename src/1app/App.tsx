@@ -7,6 +7,7 @@ import { Provider } from "react-redux";
 import { BrowserRouter, Outlet, Route, Routes } from "react-router";
 import "./App.scss";
 import { store } from "./store";
+import { Register } from "@/2pages/Register";
 
 function App() {
     return (
@@ -35,6 +36,7 @@ function App() {
                             <Route path="/" element={<Main />} />
                             <Route path="/about" element={<AboutProject />} />
                             <Route path="/login" element={<Login />} />
+                            <Route path="/register" element={<Register />} />
                         </Route>
                     </Routes>
                 </Provider>

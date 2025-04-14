@@ -8,7 +8,7 @@ export const Input = (props: InputProps) => {
     const { className, ...otherProps } = props;
     return (
         <input
-            className={cmcl(cls.Input, {}, [className as string])}
+            className={cmcl(cls.Input, {}, [className])}
             {...otherProps}
         />
     );

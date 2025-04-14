@@ -9,7 +9,6 @@ export const usePage = (
 ) => {
     const dispatch = useAppDispatch();
     useEffect(() => {
-        console.log('header visible', headerSettings.visible)
         dispatch(HeaderSlice.actions.setup(headerSettings));
         dispatch(FooterSlice.actions.setup(footerSettings));
     }, [dispatch, headerSettings, footerSettings]);

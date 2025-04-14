@@ -9,7 +9,9 @@
 }
 
 .App {
-    max-width: 1856px;
+    max-width: 1920px;
     margin: 0 auto;
-    padding: 10px 10px 0;
+    & > *:not(.no-padding) {
+        padding: 10px 20px 0;
+    }
 }

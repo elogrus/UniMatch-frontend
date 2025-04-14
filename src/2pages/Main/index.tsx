@@ -14,12 +14,17 @@ interface MainProps {
 export const Main = (props: MainProps) => {
     const { className, ...otherProps } = props;
     usePage(
-        { visible: true, mode: HeaderModes.FULL, theme: HeaderThemes.DARK },
+        {
+            visible: true,
+            mode: HeaderModes.FULL,
+            theme: HeaderThemes.DARK,
+            position: "sticky",
+        },
         { visible: true }
     );
     return (
         <div
-            className={cmcl(cls.Main, {}, [className as string])}
+            className={cmcl(cls.Main, {}, [className])}
             {...otherProps}
         >
             <div className={cls.First}>

@@ -15,7 +15,7 @@ export const Footer = (props: FooterProps) => {
     return (
         <div
             style={{ display: visible ? "flex" : "none" }}
-            className={cmcl(cls.Footer, {}, [className as string])}
+            className={cmcl(cls.Footer, {}, ['no-padding'])}
             {...otherProps}
         >
             <img src={BigLogo} alt="UniMatch" />

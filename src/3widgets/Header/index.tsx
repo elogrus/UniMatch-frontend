@@ -1,13 +1,9 @@
-import { compareClasses as cmcl } from "@/6shared/ClassNames";
-import { Link } from "react-router";
-import cls from "./styles.module.scss";
-import { LongLogo, LongLogoThemes } from "@/6shared/UI/LongLogo";
 import { useAppSelector } from "@/1app/store";
-import {
-    selectHeaderMode,
-    selectHeaderTheme,
-    selectHeaderVisibile,
-} from "./headerSlice";
+import { compareClasses as cmcl } from "@/6shared/ClassNames";
+import { LongLogo, LongLogoThemes } from "@/6shared/UI/LongLogo";
+import { Link } from "react-router";
+import { selectHeader } from "./headerSlice";
+import cls from "./styles.module.scss";
 import { HeaderModes, HeaderThemes } from "./types";
 
 interface HeaderProps {
@@ -16,25 +12,28 @@ interface HeaderProps {
 
 export const Header = (props: HeaderProps) => {
     const { className, ...otherProps } = props;
-    const visible = useAppSelector(selectHeaderVisibile);
-    const mode = useAppSelector(selectHeaderMode);
-    const theme = useAppSelector(selectHeaderTheme);
+
+    const headerState = useAppSelector(selectHeader);
+
     return (
         <div
-            style={{ display: visible ? "flex" : "none" }}
+            style={{
+                display: headerState.visible ? "flex" : "none",
+                position: headerState.position,
+            }}
             className={cmcl(
                 cls.Header,
                 {
-                    [cls.HeaderDark]: theme === HeaderThemes.DARK,
-                    [cls.HeaderLight]: theme === HeaderThemes.LIGHT,
+                    [cls.HeaderDark]: headerState.theme === HeaderThemes.DARK,
+                    [cls.HeaderLight]: headerState.theme === HeaderThemes.LIGHT,
                 },
-                [className as string]
+                ["no-padding", className]
             )}
             {...otherProps}
         >
             <LongLogo
                 theme={
-                    theme === HeaderThemes.DARK
+                    headerState.theme === HeaderThemes.DARK
                         ? LongLogoThemes.DARK
                         : LongLogoThemes.LIGHT
                 }
@@ -43,12 +42,14 @@ export const Header = (props: HeaderProps) => {
                 className={cls.Navbar}
                 style={{
                     visibility:
-                        mode === HeaderModes.FULL ? "visible" : "hidden",
+                        headerState.mode === HeaderModes.FULL
+                            ? "visible"
+                            : "hidden",
                 }}
             >
                 <Link to="about">О проекте</Link>
                 <Link to="..">Правила</Link>
-                <Link to="">Регистрация</Link>
+                <Link to="register">Регистрация</Link>
                 <Link to="login">Вход</Link>
             </nav>
         </div>

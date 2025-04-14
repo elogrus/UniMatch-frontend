@@ -15,7 +15,7 @@ interface AboutProjectProps {
 export const AboutProject = (props: AboutProjectProps) => {
     const { className, ...otherProps } = props;
     usePage(
-        { visible: true, mode: HeaderModes.FULL, theme: HeaderThemes.DARK },
+        { visible: true, mode: HeaderModes.FULL, theme: HeaderThemes.DARK, position: 'sticky' },
         { visible: true }
     );
     const TEAM: { img: string; name: string; role: string }[] = [
@@ -37,7 +37,7 @@ export const AboutProject = (props: AboutProjectProps) => {
     ];
     return (
         <div
-            className={cmcl(cls.AboutProject, {}, [className as string])}
+            className={cmcl(cls.AboutProject, {}, [className])}
             {...otherProps}
         >
             <div className={cls.First}>

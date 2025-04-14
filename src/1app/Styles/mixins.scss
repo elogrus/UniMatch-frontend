@@ -7,7 +7,7 @@
     letter-spacing: $letter-spacing;
 }
 
-@mixin linkHover() {
+@mixin hoverAndActive() {
     transition: opacity 0.15s ease;
     &:hover {
         opacity: 0.9;

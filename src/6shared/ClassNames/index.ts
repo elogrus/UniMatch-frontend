@@ -1,9 +1,11 @@
 export const compareClasses = (
     cls: string,
     mods?: Record<string, boolean>,
-    additionalCls?: Array<string>
+    additionalCls?: Array<string | undefined>
 ): string => {
     let result = cls;
+
+    additionalCls?.filter((val) => typeof val === "string");
 
     for (const mode in mods) {
         if (mods[mode]) result += " " + mode;
