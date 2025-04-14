@@ -1,4 +1,6 @@
-@import url("https://fonts.googleapis.com/css2?family=Golos+Text:wght@400..900&display=swap");
+@use "@/1app/Fonts/fonts";
+@use "@/1app/Styles/colors";
+@use "@/1app/Styles/reset";
 
 :root {
     background-color: var(--c6);

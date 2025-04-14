@@ -4,6 +4,7 @@ import { usePage } from "@/6shared/Hooks/usePage";
 import cls from "./styles.module.scss";
 import { Input } from "@/6shared/UI/Input";
 import { useState } from "react";
+import { Button, ButtonThemes } from "@/6shared/UI/Button";
 
 interface LoginProps {
     className?: string;
@@ -24,8 +25,9 @@ export const Login = (props: LoginProps) => {
             className={cmcl(cls.Login, {}, [className as string])}
             {...otherProps}
         >
-            <Input placeholder="Введите email"/>
-            <Input placeholder="Введите пароль"/>
+            <Input type="email" placeholder="Введите email" />
+            <Input placeholder="Введите пароль" />
+            <Button theme={ButtonThemes.BLACK_TRANSPARENT}>asd</Button>
         </div>
     );
 };

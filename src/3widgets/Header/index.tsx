@@ -1,7 +1,7 @@
 import { compareClasses as cmcl } from "@/6shared/ClassNames";
 import { Link } from "react-router";
 import cls from "./styles.module.scss";
-import { LongLogo } from "@/6shared/UI/LongLogo";
+import { LongLogo, LongLogoThemes } from "@/6shared/UI/LongLogo";
 import { useAppSelector } from "@/1app/store";
 import {
     selectHeaderMode,
@@ -19,7 +19,6 @@ export const Header = (props: HeaderProps) => {
     const visible = useAppSelector(selectHeaderVisibile);
     const mode = useAppSelector(selectHeaderMode);
     const theme = useAppSelector(selectHeaderTheme);
-    console.log("HEADER MODE", visible);
     return (
         <div
             style={{ display: visible ? "flex" : "none" }}
@@ -33,7 +32,13 @@ export const Header = (props: HeaderProps) => {
             )}
             {...otherProps}
         >
-            <LongLogo theme={theme} />
+            <LongLogo
+                theme={
+                    theme === HeaderThemes.DARK
+                        ? LongLogoThemes.DARK
+                        : LongLogoThemes.LIGHT
+                }
+            />
             <nav
                 className={cls.Navbar}
                 style={{

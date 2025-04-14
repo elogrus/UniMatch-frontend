@@ -3,25 +3,20 @@ import { compareClasses as cmcl } from "@/6shared/ClassNames";
 import Logo from "@/6shared/Assets/logo.svg";
 import Unimatch from "@/6shared/Assets/unimatch.svg";
 
+export enum LongLogoThemes {
+    LIGHT = "LongLogoLight",
+    DARK = "LongLogoDark",
+}
+
 interface LongLogoProps {
     className?: string;
-    theme?: "dark" | "light";
+    theme?: LongLogoThemes;
 }
 
 export const LongLogo = (props: LongLogoProps) => {
-    const { className, theme = "light", ...otherProps } = props;
+    const { className, theme = LongLogoThemes.LIGHT, ...otherProps } = props;
     return (
-        <div
-            className={cmcl(
-                cls.LongLogo,
-                {
-                    [cls.LongLogoDark]: theme === "dark",
-                    [cls.LongLogoLight]: theme === "light",
-                },
-                [className as string]
-            )}
-            {...otherProps}
-        >
+        <div className={cmcl(cls.LongLogo, {}, [cls[theme]])} {...otherProps}>
             <img src={Logo} alt="Логотип" />
             <span></span>
             <img src={Unimatch} alt="Uni match" />

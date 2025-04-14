@@ -1,7 +1,10 @@
 .Input {
-    @include text("GolosText", 400, 22px, var(--c8));
-    text-decoration: underline;
+    @include text("GolosText", 400, 22px);
     border: 2px solid var(--c8);
     padding: 0.7em 1.3em;
     border-radius: 0.8em;
+    &::placeholder {
+        text-decoration: underline;
+        color: var(--c8);
+    }
 }

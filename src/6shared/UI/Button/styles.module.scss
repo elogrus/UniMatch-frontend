@@ -1,0 +1,25 @@
+.Button {
+    @include text("GolosText", 400, 22px);
+    text-align: center;
+    padding: 0.7em 1.3em;
+    border-radius: 0.8em;
+}
+.ButtonWhite {
+    color: var(--c6);
+    background-color: var(--c2);
+}
+
+.ButtonGray {
+    color: var(--c4);
+    background-color: var(--c7);
+}
+
+.ButtonGrayTransparent {
+    color: var(--c4);
+    border: 2px solid var(--c4);
+}
+
+.ButtonBlackTransparent {
+    color: var(--c6);
+    border: 2px solid var(--c6);
+}

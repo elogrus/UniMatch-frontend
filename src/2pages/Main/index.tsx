@@ -61,7 +61,7 @@ export const Main = (props: MainProps) => {
                 <h2 className={cls.Title}>А зачем?</h2>
                 <div className={cls.TextBlock}>
                     <div>
-                        {/* <p>
+                        <p>
                             Общение — базовая потребность человека. И мы
                             придумали новую форму для него)
                         </p>
@@ -69,8 +69,7 @@ export const Main = (props: MainProps) => {
                             А ещё это отличный способ найти неожиданные
                             знакомства которые изменят вашу жизнь (или просто
                             сделают её интересней)
-                        </p> */}
-                        <p>да хуй знает я ебал</p>
+                        </p>
                     </div>
                     <img src={People} />
                 </div>
