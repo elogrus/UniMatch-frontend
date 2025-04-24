@@ -1,0 +1,41 @@
+.RegisterForm {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 300px;
+    @include text("GolosText", 500, 50px, var(--c4));
+    gap: 0.5em;
+    padding: 0.96em 1em 1.44em;
+    border-radius: 0.64em;
+    width: 45%;
+    background-color: var(--c6);
+}
+
+.Block {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding-top: 0.88em;
+    & > * {
+        margin-bottom: 1em;
+    }
+    p {
+        @include text("GolosText", 400, 22px, var(--c2));
+        .Dark {
+            color: var(--c7);
+        }
+        &:last-of-type {
+            margin-bottom: 1.45em;
+        }
+    }
+}
+
+.Button {
+    // max-width: 60%;
+    // width: 100%;
+    margin-top: 1em;
+}
+
+.TagList {
+    height: 300px;
+}

@@ -1,6 +1,6 @@
 import { HeaderModes, HeaderThemes } from "@/3widgets/Header/types";
 import LittleRoadmap from "@/6shared/Assets/littleRoadmap.png";
-import { compareClasses as cmcl } from "@/6shared/ClassNames";
+import { compareClasses as cmcl } from "@/6shared/Utils/ClassNames";
 import { usePage } from "@/6shared/Hooks/usePage";
 import { Link } from "react-router";
 import People from "./assets/people.png";

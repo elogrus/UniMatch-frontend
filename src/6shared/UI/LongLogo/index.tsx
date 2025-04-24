@@ -1,5 +1,5 @@
 import cls from "./styles.module.scss";
-import { compareClasses as cmcl } from "@/6shared/ClassNames";
+import { compareClasses as cmcl } from "@/6shared/Utils/ClassNames";
 import Logo from "@/6shared/Assets/logo.svg";
 import Unimatch from "@/6shared/Assets/unimatch.svg";
 

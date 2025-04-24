@@ -1,10 +1,34 @@
+.Label {
+    @include text("GolosText", 400, 16px);
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+    cursor: default;
+    span {
+        color: var(--c9);
+        padding-left: 1.1em;
+    }
+}
+
 .Input {
-    @include text("GolosText", 400, 22px);
+    font-size: 1.37em;
     border: 2px solid var(--c8);
     padding: 0.7em 1.3em;
     border-radius: 0.8em;
+    position: relative;
     &::placeholder {
         text-decoration: underline;
         color: var(--c8);
     }
+    &::-webkit-calendar-picker-indicator {
+        position: absolute;
+        background-image: none;
+        width: 100%;
+        height: 100%;
+        cursor: pointer;
+    }
+}
+
+.InputBad {
+    border-color: var(--c9);
 }

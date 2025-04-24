@@ -1,15 +1,30 @@
-import { compareClasses as cmcl } from "@/6shared/ClassNames";
-import { InputHTMLAttributes } from "react";
+import { compareClasses as cmcl } from "@/6shared/Utils/ClassNames";
+import { ComponentPropsWithRef } from "react";
 import cls from "./styles.module.scss";
 
-interface InputProps extends InputHTMLAttributes<HTMLInputElement> {}
+export interface InputProps extends ComponentPropsWithRef<"input"> {
+    label?: string | null | false;
+    labelProps?: ComponentPropsWithRef<"label">;
+    isBad?: boolean;
+}
 
 export const Input = (props: InputProps) => {
-    const { className, ...otherProps } = props;
+    const {
+        className,
+        label = "",
+        labelProps = {},
+        isBad = false,
+        ...otherProps
+    } = props;
     return (
-        <input
-            className={cmcl(cls.Input, {}, [className])}
-            {...otherProps}
-        />
+        <label className={cls.Label} {...labelProps}>
+            {label && <span>{label}</span>}
+            <input
+                className={cmcl(cls.Input, { [cls.InputBad]: isBad }, [
+                    className,
+                ])}
+                {...otherProps}
+            />
+        </label>
     );
 };

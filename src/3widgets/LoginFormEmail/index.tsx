@@ -1,4 +1,4 @@
-import { compareClasses as cmcl } from "@/6shared/ClassNames";
+import { compareClasses as cmcl } from "@/6shared/Utils/ClassNames";
 import { Button, ButtonThemes } from "@/6shared/UI/Button";
 import { Input } from "@/6shared/UI/Input";
 import { Spinner } from "@/6shared/UI/Spinner";

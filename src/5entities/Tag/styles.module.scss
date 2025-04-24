@@ -1,0 +1,11 @@
+.Tag {
+    background-color: var(--c7);
+    @include text("GolosText", 400, 24px, var(--c4));
+    padding: 0.4em 0.87em 0.5em;
+    border-radius: 0.8em;
+}
+
+.Active {
+    background-color: var(--c1);
+    color: var(--c6);
+}

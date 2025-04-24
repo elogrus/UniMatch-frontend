@@ -1,4 +1,11 @@
-@mixin text($family: "GolosText", $weight: 400, $font-size: inherit, $color: var(--c2), $line-height: 125%, $letter-spacing: 0) {
+@mixin text(
+    $family: "GolosText",
+    $weight: 400,
+    $font-size: inherit,
+    $color: var(--c2),
+    $line-height: 125%,
+    $letter-spacing: 0
+) {
     font-family: $family, sans-serif;
     font-weight: $weight;
     line-height: $line-height;
@@ -9,10 +16,16 @@
 
 @mixin hoverAndActive() {
     transition: opacity 0.15s ease;
+    cursor: pointer;
+    user-select: none;
     &:hover {
         opacity: 0.9;
     }
     &:active {
+        opacity: 0.8;
+    }
+    &:disabled {
+        cursor: default;
         opacity: 0.8;
     }
 }

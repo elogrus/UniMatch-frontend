@@ -1,6 +1,6 @@
 import { HeaderModes, HeaderThemes } from "@/3widgets/Header/types";
 import { LoginFormEmail } from "@/3widgets/LoginFormEmail";
-import { compareClasses as cmcl } from "@/6shared/ClassNames";
+import { compareClasses as cmcl } from "@/6shared/Utils/ClassNames";
 import { usePage } from "@/6shared/Hooks/usePage";
 import cls from "./styles.module.scss";
 

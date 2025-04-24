@@ -1,4 +1,4 @@
-import { compareClasses as cmcl } from "@/6shared/ClassNames";
+import { compareClasses as cmcl } from "@/6shared/Utils/ClassNames";
 import { ButtonHTMLAttributes } from "react";
 import { LinkProps, Link as RLink } from "react-router";
 import cls from "./styles.module.scss";

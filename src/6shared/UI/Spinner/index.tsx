@@ -1,5 +1,5 @@
 import cls from './styles.module.scss';
-import { compareClasses as cmcl } from '@/6shared/ClassNames';
+import { compareClasses as cmcl } from '@/6shared/Utils/ClassNames';
 
 interface SpinnerProps {
     className?: string;

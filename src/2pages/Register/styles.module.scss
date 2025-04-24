@@ -9,3 +9,8 @@
     min-height: 100vh;
 }
 
+.Container {
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+}

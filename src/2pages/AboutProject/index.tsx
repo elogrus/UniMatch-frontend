@@ -1,7 +1,7 @@
 import { HeaderModes, HeaderThemes } from "@/3widgets/Header/types";
 import LittleRoadmap from "@/6shared/Assets/littleRoadmap.png";
 import UnitLogo from "@/6shared/Assets/unit_logo.svg";
-import { compareClasses as cmcl } from "@/6shared/ClassNames";
+import { compareClasses as cmcl } from "@/6shared/Utils/ClassNames";
 import { usePage } from "@/6shared/Hooks/usePage";
 import Exeutica from "./assets/exeutica.png";
 import Photo from "./assets/photo.png";

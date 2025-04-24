@@ -1,5 +1,5 @@
 import { useAppSelector } from "@/1app/store";
-import { compareClasses as cmcl } from "@/6shared/ClassNames";
+import { compareClasses as cmcl } from "@/6shared/Utils/ClassNames";
 import { LongLogo, LongLogoThemes } from "@/6shared/UI/LongLogo";
 import { Link } from "react-router";
 import { selectHeader } from "./headerSlice";
