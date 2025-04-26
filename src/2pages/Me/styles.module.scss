@@ -1,0 +1,41 @@
+.Me {
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+    @include text("GolosText", 500, 36px, var(--c2));
+    margin: 2em 0 3em;
+    h2 {
+        margin-bottom: 0.7em;
+    }
+}
+
+$matchesGap: 24px;
+.MatchBlock {
+    width: calc(50% - $matchesGap);
+    display: flex;
+    flex-direction: column;
+    &:nth-child(2) {
+        color: var(--c4);
+    }
+}
+
+.MatchesBlock {
+    display: flex;
+    justify-content: space-between;
+    gap: $matchesGap;
+}
+
+.HistoryBlock {
+    display: flex;
+    flex-direction: column;
+    a {
+        @include text("GolosText", 400, 20px, var(--c4));
+        text-decoration: underline;
+        padding-left: 1.5em;
+    }
+}
+
+.History {
+    max-width: 1300px;
+    padding: 0 0 1em 1.5em;
+}

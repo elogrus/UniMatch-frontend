@@ -37,6 +37,9 @@ export const RegisterForm = (props: RegisterFormProps) => {
             { id: "asd6", value: "asd6", active: false },
             { id: "asd7", value: "asd7", active: false },
             { id: "asd8", value: "asd8", active: false },
+            { id: "asd9", value: "asd9", active: false },
+            { id: "asd10", value: "asd10", active: false },
+            { id: "asd11", value: "asd11", active: false },
         ]
     );
     const email = useFormTextField(

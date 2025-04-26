@@ -1,11 +1,27 @@
 .Tag {
-    background-color: var(--c7);
-    @include text("GolosText", 400, 24px, var(--c4));
+    @include text("GolosText", 400, 24px);
     padding: 0.4em 0.87em 0.5em;
+    min-width: 7em;
+    text-align: center;
     border-radius: 0.8em;
 }
 
-.Active {
+.TagGray {
+    color: var(--c4);
+    background-color: var(--c7);
+}
+
+.TagGray.Active {
     background-color: var(--c1);
     color: var(--c6);
+}
+
+.TagBlack {
+    color: var(--c1);
+    background-color: var(--c6);
+}
+
+.TagBlack.Active {
+    color: var(--c6);
+    background-color: var(--c1);
 }

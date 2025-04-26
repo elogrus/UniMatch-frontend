@@ -1,0 +1,29 @@
+.MyTags {
+    @include text("GolosText", 500, 36px, var(--c2));
+    h2 {
+        margin-bottom: 0.5em;
+    }
+}
+
+.Blocks {
+    display: flex;
+    gap: 0.5em;
+}
+
+.Block {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 1.5em 1.8em;
+    background-color: var(--c5);
+    border-radius: 32px;
+    width: 33%;
+    &:first-of-type {
+        width: 66%;
+    }
+}
+
+.TagList {
+    height: 100%;
+    width: 100%;
+}

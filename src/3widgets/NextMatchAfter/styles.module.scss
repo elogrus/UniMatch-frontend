@@ -1,0 +1,17 @@
+.NextMatchAfter {
+    background-image: url("./assets/bg.png");
+    background-repeat: no-repeat;
+    background-position: top left;
+    @include text("GolosText", 500, 27px, var(--c4));
+    display: flex;
+    align-items: flex-end;
+    border-radius: 32px;
+    border: 6px solid var(--c6);
+    padding: 1.6em;
+    height: 100%;
+    span {
+        padding: 0.7em 4.5em;
+        border: 2px solid var(--c4);
+        border-radius: 0.8em;
+    }
+}

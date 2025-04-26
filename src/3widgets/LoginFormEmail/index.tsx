@@ -4,81 +4,74 @@ import { Input } from "@/6shared/UI/Input";
 import { Spinner } from "@/6shared/UI/Spinner";
 import { DetailedHTMLProps, FormHTMLAttributes, useState } from "react";
 import cls from "./styles.module.scss";
+import { useFormTextField } from "@/6shared/Hooks/Forms/useFormTextField";
+import regexp from "@/6shared/Utils/Validation/validators/regexp";
+import required from "@/6shared/Utils/Validation/validators/required";
+import { useForm } from "@/6shared/Hooks/Forms/useForm";
 
 export interface FormData {
     email: string;
     password: string;
 }
 
-interface LoginFormEmailProps
-    extends DetailedHTMLProps<
-        FormHTMLAttributes<HTMLFormElement>,
-        HTMLFormElement
-    > {
+interface LoginFormEmailProps {
     className?: string;
 }
 
+// TODO: redesign with useForm
 export const LoginFormEmail = (props: LoginFormEmailProps) => {
-    const {
-        className,
-        onSubmit = () => {
-            return new Promise((resolve, reject) => {
-                setTimeout(() => resolve("hehehe"), 2000);
-            });
-        },
-        ...otherProps
-    } = props;
-    const [isLoading, setIsLoading] = useState(false);
-    const onFormSumbit: typeof onSubmit = async (e) => {
-        e.preventDefault();
-        setIsLoading(true);
-        await onSubmit(e);
-        setIsLoading(false);
-    };
+    const { className, ...otherProps } = props;
+    const email = useFormTextField(
+        "email",
+        [required(), regexp(/^\S+@\S+\.\S+$/, "Почта невалидна")],
+        ""
+    );
+    const password = useFormTextField("password", [required()], "");
+    const { isSending, handleSubmit } = useForm([email, password], (data) => {
+        console.log(data);
+        alert("типа данные отправились юху");
+    });
     return (
-        <form
+        <div
             className={cmcl(cls.LoginFormEmail, {}, [className])}
-            onSubmit={onFormSumbit}
             style={{
-                alignItems: isLoading ? "center" : "flex-start",
+                alignItems: isSending ? "center" : "flex-start",
             }}
             {...otherProps}
         >
-            {isLoading ? (
+            {isSending ? (
                 <Spinner />
             ) : (
                 <>
                     <h1>Вход</h1>
                     <Input
-                        onInvalid={() => console.log("working!")}
-                        type="email"
                         placeholder="Введите email"
-                        name="email"
-                        required
+                        isBad={!!email.error}
+                        label={email.error}
+                        value={email.value}
+                        onChange={email.handleChange}
+                        onBlur={email.handleBlur}
                     />
                     <Input
-                        onInvalid={(e) =>
-                            e.currentTarget.setCustomValidity(
-                                "Пароль должен состоять из букв и цифр"
-                            )
-                        }
-                        pattern="[\d\w]+"
                         type="password"
                         placeholder="Введите пароль"
+                        isBad={!!password.error}
+                        label={password.error}
+                        value={password.value}
+                        onChange={password.handleChange}
+                        onBlur={password.handleBlur}
                     />
                     <div>
                         <Button.Default
                             type="submit"
+                            onClick={handleSubmit}
                             theme={ButtonThemes.WHITE}
                         >
                             Войти
                         </Button.Default>
-                        <Button.Link to="" theme={ButtonThemes.GRAY}>
-                            Войти через телеграм
-                        </Button.Link>
                     </div>
                 </>
             )}
-        </form>
+        </div>
     );
 };

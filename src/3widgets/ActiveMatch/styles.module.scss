@@ -1,0 +1,26 @@
+.ActiveMatch {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    background-color: var(--c1);
+    @include text("GolosText", 500, 48px, var(--c6));
+    padding: 1em;
+    border-radius: 32px;
+}
+
+.Top {
+    display: flex;
+    align-items: center;
+    gap: 0.4em;
+    img {
+        width: 4.5em;
+        height: 4.5em;
+        object-fit: cover;
+        border-radius: 4.5em;
+        border: 6px solid var(--c6);
+    }
+}
+
+.Button {
+    margin-top: 4em;
+}
