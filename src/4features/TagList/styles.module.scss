@@ -1,5 +1,3 @@
-$gap: 12px;
-
 .TagList {
     position: relative;
 }
@@ -10,7 +8,8 @@ $gap: 12px;
     overflow-y: auto;
     display: flex;
     flex-wrap: wrap;
-    gap: $gap;
+    align-content: flex-start;
+    gap: 12px;
     padding-bottom: 0.8em;
 }
 
@@ -22,11 +21,27 @@ $gap: 12px;
     bottom: 0;
     left: 0;
     pointer-events: none;
+    
+}
+
+.ContainerBlack::after {
     background-image: linear-gradient(to bottom, transparent, var(--c6));
 }
 
-.Tag {
-    width: calc(50% - 2 * $gap);
+.ContainerGray::after {
+    background-image: linear-gradient(to bottom, transparent, var(--c5));
+}
+
+
+
+.Tag3 {
+    max-width: calc(33% - 12px);
+    width: 100%;
+}
+
+.Tag2 {
+    max-width: calc(50% - 12px);
+    width: 100%;
 }
 
 .TagClickable {

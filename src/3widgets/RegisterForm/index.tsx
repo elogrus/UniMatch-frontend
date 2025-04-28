@@ -14,6 +14,9 @@ import regexp from "@/6shared/Utils/Validation/validators/regexp";
 import required from "@/6shared/Utils/Validation/validators/required";
 import { createRef } from "react";
 import cls from "./styles.module.scss";
+import { BadResponse, GoodResponse, register } from "./send";
+import { Spinner } from "@/6shared/UI/Spinner";
+import { useNavigate } from "react-router";
 
 interface RegisterFormProps {
     className?: string;
@@ -53,18 +56,31 @@ export const RegisterForm = (props: RegisterFormProps) => {
         [required(), equal(password.value, "Пароли не совпадают")],
         ""
     );
-
-    const { isSending, handleSubmit } = useForm(
+    const navigate = useNavigate();
+    const { isSending, handleSubmit, error } = useForm(
         [firstname, lastname, birth, tags, email, password],
-        (data) => {
+        async (data) => {
             data.tags = (data.tags as typeof tags.value)
                 .filter((tag) => tag.active)
-                .map((tag) => ({
-                    id: tag.id,
-                    value: tag.value,
-                }));
+                .map((tag) => tag.id);
             console.log(data);
-            alert("типа данные отправились юху");
+            const response = await register(
+                data.firstname,
+                data.lastname,
+                data.email,
+                data.birth,
+                data.password,
+                data.tags
+            );
+            console.log(response);
+            const body = await response.json();
+            if (response.status > 399) {
+                return (body as BadResponse).error;
+            } else {
+                localStorage.setItem("token", (body as GoodResponse).token);
+                navigate("/me");
+            }
+            return null;
         }
     );
 
@@ -82,6 +98,7 @@ export const RegisterForm = (props: RegisterFormProps) => {
             {...otherProps}
         >
             <h1>Регистрация</h1>
+            {error && <h3>{error}</h3>}
             <Carousel ref={carouselRef}>
                 <div className={cls.Block}>
                     <p key="greetings">
@@ -173,11 +190,16 @@ export const RegisterForm = (props: RegisterFormProps) => {
                         onChange={confirmPassword.handleChange}
                         onBlur={confirmPassword.handleBlur}
                     />
+
                     <Button.Default
                         className={cls.Button}
                         onClick={handleSubmit}
                     >
-                        Зарегистрироваться
+                        {isSending ? (
+                            <Spinner className={cls.Spinner} />
+                        ) : (
+                            "Зарегистрироваться"
+                        )}
                     </Button.Default>
                 </div>
             </Carousel>

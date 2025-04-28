@@ -3,7 +3,7 @@ import { usePage } from "@/6shared/Hooks/usePage";
 import { compareClasses as cmcl } from "@/6shared/Utils/ClassNames";
 import cls from "./styles.module.scss";
 import { Button, ButtonThemes } from "@/6shared/UI/Button";
-import { TagList } from "@/4features/TagList";
+import { ContainerShadowColor, TagList } from "@/4features/TagList";
 
 interface MeProps {
     className?: string;
@@ -25,19 +25,237 @@ export const MyTags = (props: MeProps) => {
             <h2>Твои теги</h2>
             <div className={cls.Blocks}>
                 <div className={cls.Block}>
-                    <TagList className={cls.TagList} tags={[{
-                        id: 'asd',
-                        active: false,
-                        value: 'asd'
-                    },{
-                        id: 'asd2',
-                        active: false,
-                        value: 'asd'
-                    },{
-                        id: 'asd3',
-                        active: false,
-                        value: 'asd'
-                    }]} />
+                    <TagList
+                        columns={3}
+                        containerShadowColor={ContainerShadowColor.GRAY}
+                        tagClassName={cls.Tag}
+                        className={cls.TagList}
+                        tags={[
+                            {
+                                id: "asd",
+                                active: false,
+                                value: "asd",
+                            },
+                            {
+                                id: "asd2",
+                                active: false,
+                                value: "asd",
+                            },
+                            {
+                                id: "asd3",
+                                active: false,
+                                value: "asd",
+                            },
+                            {
+                                id: "asd11",
+                                active: false,
+                                value: "asd",
+                            },
+                            {
+                                id: "asd212",
+                                active: false,
+                                value: "asd",
+                            },
+                            {
+                                id: "asd313",
+                                active: false,
+                                value: "asd",
+                            },
+                            {
+                                id: "asd14",
+                                active: false,
+                                value: "asd",
+                            },
+                            {
+                                id: "asd215",
+                                active: false,
+                                value: "asd",
+                            },
+                            {
+                                id: "asd316",
+                                active: false,
+                                value: "asd",
+                            },
+
+
+
+                            {
+                                id: "1asd212",
+                                active: false,
+                                value: "asd",
+                            },
+                            {
+                                id: "2asd313",
+                                active: false,
+                                value: "asd",
+                            },
+                            {
+                                id: "3asd14",
+                                active: false,
+                                value: "asd",
+                            },
+                            {
+                                id: "4asd215",
+                                active: false,
+                                value: "asd",
+                            },
+                            {
+                                id: "5asd316",
+                                active: false,
+                                value: "asd",
+                            },
+                            {
+                                id: "1asd212",
+                                active: false,
+                                value: "asd",
+                            },
+                            {
+                                id: "2asd313",
+                                active: false,
+                                value: "asd",
+                            },
+                            {
+                                id: "3asd14",
+                                active: false,
+                                value: "asd",
+                            },
+                            {
+                                id: "4asd215",
+                                active: false,
+                                value: "asd",
+                            },
+                            {
+                                id: "5asd316",
+                                active: false,
+                                value: "asd",
+                            },
+                            {
+                                id: "1asd212",
+                                active: false,
+                                value: "asd",
+                            },
+                            {
+                                id: "2asd313",
+                                active: false,
+                                value: "asd",
+                            },
+                            {
+                                id: "3asd14",
+                                active: false,
+                                value: "asd",
+                            },
+                            {
+                                id: "4asd215",
+                                active: false,
+                                value: "asd",
+                            },
+                            {
+                                id: "5asd316",
+                                active: false,
+                                value: "asd",
+                            },
+                            {
+                                id: "1asd212",
+                                active: false,
+                                value: "asd",
+                            },
+                            {
+                                id: "2asd313",
+                                active: false,
+                                value: "asd",
+                            },
+                            {
+                                id: "3asd14",
+                                active: false,
+                                value: "asd",
+                            },
+                            {
+                                id: "4asd215",
+                                active: false,
+                                value: "asd",
+                            },
+                            {
+                                id: "5asd316",
+                                active: false,
+                                value: "asd",
+                            },
+                            {
+                                id: "1asd212",
+                                active: false,
+                                value: "asd",
+                            },
+                            {
+                                id: "2asd313",
+                                active: false,
+                                value: "asd",
+                            },
+                            {
+                                id: "3asd14",
+                                active: false,
+                                value: "asd",
+                            },
+                            {
+                                id: "4asd215",
+                                active: false,
+                                value: "asd",
+                            },
+                            {
+                                id: "5asd316",
+                                active: false,
+                                value: "asd",
+                            },
+                            {
+                                id: "1asd212",
+                                active: false,
+                                value: "asd",
+                            },
+                            {
+                                id: "2asd313",
+                                active: false,
+                                value: "asd",
+                            },
+                            {
+                                id: "3asd14",
+                                active: false,
+                                value: "asd",
+                            },
+                            {
+                                id: "4asd215",
+                                active: false,
+                                value: "asd",
+                            },
+                            {
+                                id: "5asd316",
+                                active: false,
+                                value: "asd",
+                            },
+                            {
+                                id: "1asd212",
+                                active: false,
+                                value: "asd",
+                            },
+                            {
+                                id: "2asd313",
+                                active: false,
+                                value: "asd",
+                            },
+                            {
+                                id: "3asd14",
+                                active: false,
+                                value: "asd",
+                            },
+                            {
+                                id: "4asd215",
+                                active: false,
+                                value: "asd",
+                            },
+                            {
+                                id: "5asd316",
+                                active: false,
+                                value: "asd",
+                            },
+                        ]}
+                    />
                     <Button.Default theme={ButtonThemes.WHITE}>
                         Сохранить
                     </Button.Default>
@@ -50,7 +268,7 @@ export const MyTags = (props: MeProps) => {
                             новые!
                         </p>
                     </div>
-                    <Button.Link to="" theme={ButtonThemes.GRAY}>
+                    <Button.Link to="" theme={ButtonThemes.LIGHTGRAY}>
                         Оставить заявку
                     </Button.Link>
                 </div>

@@ -9,6 +9,10 @@
     border-radius: 0.64em;
     width: 45%;
     background-color: var(--c6);
+
+    h3 {
+        @include text("GolosText", 400, 22px, var(--c9));
+    }
 }
 
 .Block {
@@ -38,4 +42,14 @@
 
 .TagList {
     height: 300px;
+}
+
+.Spinner {
+    --SpinnerColor: var(--c5);
+    --SpinnerSize: 1em;
+    // border: 1px solid red;
+    // display: flex;
+    // justify-content: center;
+    // background-color: red;
+    
 }

@@ -8,6 +8,7 @@ export enum ButtonThemes {
     GRAY = "ButtonGray",
     GRAY_TRANSPARENT = "ButtonGrayTransparent",
     BLACK_TRANSPARENT = "ButtonBlackTransparent",
+    LIGHTGRAY = "ButtonLightGray",
 }
 
 interface DefaultButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {

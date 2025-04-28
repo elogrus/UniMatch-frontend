@@ -2,6 +2,7 @@
     background-image: url("./assets/bg.png");
     background-repeat: no-repeat;
     background-position: top left;
+    background-size: cover;
     @include text("GolosText", 500, 27px, var(--c4));
     display: flex;
     align-items: flex-end;

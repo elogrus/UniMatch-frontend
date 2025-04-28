@@ -3,9 +3,12 @@ import { DefaultField } from "./useFormField";
 
 export const useForm = (
     fields: DefaultField<any>[],
-    onSubmit: (data: Record<(typeof fields)[number]["id"], any>) => void
+    onSubmit: (
+        data: Record<(typeof fields)[number]["id"], any>
+    ) => Promise<string | null>
 ) => {
     const [isSending, setIsSending] = useState(false);
+    const [error, setError] = useState<string | null>();
     const handleSubmit = async () => {
         const errors = await Promise.all(
             fields.map((field) => field.hasError())
@@ -18,7 +21,8 @@ export const useForm = (
                 data[field.id] = field.value;
             });
             setIsSending(true);
-            await onSubmit(data);
+            const responseError = await onSubmit(data);
+            if (responseError !== null) setError(responseError);
             setIsSending(false);
         }
     };
@@ -26,5 +30,6 @@ export const useForm = (
     return {
         isSending,
         handleSubmit,
+        error,
     };
 };

@@ -1,9 +1,12 @@
 .Tag {
     @include text("GolosText", 400, 24px);
+    display: inline;
+    height: fit-content;
     padding: 0.4em 0.87em 0.5em;
-    min-width: 7em;
     text-align: center;
     border-radius: 0.8em;
+    max-width: 10em;
+    width: 100%;
 }
 
 .TagGray {
