@@ -22,7 +22,7 @@ export const api = ky.create({
                             await tokenResponse.json<{ token: string }>()
                         ).token;
                         localStorage.setItem("token", token);
-                        req.headers.set("Authorization", token);
+                        req.headers.set("Authorization", token); 
                         return ky(req);
                     }
                 }
