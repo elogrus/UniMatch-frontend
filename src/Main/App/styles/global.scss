@@ -1,0 +1,48 @@
+html {
+    font-size: 16px;
+    font-family: "Golos-Text";
+    color: var(--PRIMARY_WHITE);
+    background-color: var(--PRIMARY_BLACK);
+}
+
+a:hover, button:hover {
+    opacity: 0.8;
+}
+
+a:active, button:active {
+    opacity: 0.9;
+    color: inherit;
+}
+
+p {
+    font-size: 1.125rem; // 18px/16
+    line-height: 115%;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    line-height: 90%;
+    font-weight: 600;
+    color: var(--PRIMARY_LIGHTGRAY);
+}
+
+h1 {
+    font-size: 6.56rem; // 105px/16
+    line-height: 90%;
+}
+
+h2 {
+    font-size: 4.37rem; // 70px/16
+}
+
+h3 {
+    font-size: 4rem; // 64px/16
+}
+
+h4 {
+    font-size: 3rem; // 48px/16
+}

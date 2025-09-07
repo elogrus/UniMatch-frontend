@@ -1,0 +1,10 @@
+.Navbar {
+    display: flex;
+    gap: 2.5em;
+    color: var(--PRIMARY_BLACK);
+    text-wrap: nowrap;
+}
+
+.BoldLink {
+    font-weight: 500;
+}
