@@ -1,0 +1,13 @@
+.FirstBlock {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    height: 50rem;
+    background-color: var(--BG_GRAY);
+    padding: 3rem;
+    border-radius: 32px;
+    h1 {
+        color: var(--PRIMARY_LIME);
+    }
+    margin-bottom: 1.68rem; //27/16
+}

@@ -1,0 +1,18 @@
+.Algorithm {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1em;
+    grid-template-rows: 1fr;
+    padding: 3rem;
+    background-color: var(--BG_DARKGRAY);
+    border-radius: 32px;
+    margin-bottom: 5.81rem; //93/16
+}
+@media (width < 1000px) {
+    .Algorithm {
+        display: flex;
+        flex-direction: column-reverse;
+        gap: 2rem;
+        padding-bottom: 5rem;
+    }
+}
