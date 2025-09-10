@@ -63,13 +63,13 @@ export const About = () => {
                 </div>
             </section>
             <section className={styles.MadeIn}>
-                <MyA href="https://unit-ekb.ru/" className={styles.Unit}>
+                <MyA href="https://unit-ekb.ru/" className={styles.Block + ' ' + styles.Unit}>
                     <img src={Unit} />
                 </MyA>
-                <div className={styles.Exeutica}>
+                <div className={styles.Block + ' ' + styles.Exeutica}>
                     <img src={Exeutica} />
                 </div>
-                <div className={styles.Y}>
+                <div className={styles.Block + ' ' + styles.Y}>
                     <img src={Y} />
                 </div>
             </section>
