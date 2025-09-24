@@ -8,6 +8,7 @@
     transition: 0.5s ease;
     background-color: var(--BG_DARKGRAY);
     border-radius: 0 0 32px 32px;
+    z-index: 1000000;
     &.Open {
         top: 0;
     }

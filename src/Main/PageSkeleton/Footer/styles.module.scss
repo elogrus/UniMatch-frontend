@@ -14,7 +14,12 @@
 }
 
 .Right {
-    color: var(--PRIMARY_LIGHTGRAY);
+    a,
+    a:link,
+    a:visited {
+        color: var(--PRIMARY_LIGHTGRAY);
+        text-decoration: underline;
+    }
     display: grid;
     grid-auto-flow: column;
     grid-template-columns: repeat(2, 1fr);
@@ -28,7 +33,6 @@
         grid-row-start: 4;
     }
 
-    text-decoration: underline;
     a::after {
         content: " →";
     }

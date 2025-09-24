@@ -19,15 +19,6 @@
 .Logo {
     height: 100%;
 }
-.Separator {
-    width: 1px;
-    height: 100%;
-    background-color: var(--PRIMARY_BLACK);
-}
-.UniMatchText {
-    height: 66.6%; // 48/0.72
-}
-
 
 .Right {
     font-size: 23px;
@@ -65,8 +56,5 @@
     }
     .Logo {
         height: 70%;
-    }
-    .UniMatchText {
-        height: 46.6%; // (48/0.72) * 0.75
     }
 }

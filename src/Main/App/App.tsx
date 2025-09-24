@@ -1,7 +1,9 @@
 import { BrowserRouter } from "react-router";
 import { MyRouter } from "../MyRouter";
 
-import './styles/reset.scss'
+import './styles/library/text.scss'
+import './styles/library/buttons.scss'
+import './styles/normalize.scss'
 import './styles/fonts.scss'
 import './styles/colors.scss'
 import './styles/global.scss'

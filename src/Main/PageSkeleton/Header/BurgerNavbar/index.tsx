@@ -32,10 +32,10 @@ export const BurgerNavbar = ({
                 <nav>
                     <Link to="#">О проекте</Link>
                     <Link to="#">Правила</Link>
-                    <Link className={styles.BoldLink} to="#">
+                    <Link className={styles.BoldLink} to="/register">
                         Регистрация
                     </Link>
-                    <Link className={styles.BoldLink} to="#">
+                    <Link className={styles.BoldLink} to="/login">
                         Вход
                     </Link>
                 </nav>
