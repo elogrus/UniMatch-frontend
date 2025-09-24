@@ -15,5 +15,5 @@ export interface FetchRegisterResponse {
     access: string;
 }
 export const fetchRegister = (params: FetchRegisterParams) => {
-    return http.post<FetchRegisterResponse>("api/register", { json: params });
+    return http.post<FetchRegisterResponse>("api/register/", { json: params });
 };

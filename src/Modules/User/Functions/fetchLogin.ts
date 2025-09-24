@@ -8,5 +8,5 @@ export interface FetchLoginResponse {
     access: string;
 }
 export const fetchLogin = (params: FetchLoginParams) => {
-    return http.post<FetchLoginResponse>("api/token", { json: params });
+    return http.post<FetchLoginResponse>("api/token/", { json: params });
 };

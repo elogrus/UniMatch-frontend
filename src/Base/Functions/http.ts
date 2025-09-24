@@ -7,6 +7,8 @@ export interface ErrorResponse {
 
 export type Response<T> = T | ErrorResponse;
 
+
+
 export const http = ky.create({
     prefixUrl: import.meta.env.VITE_BACKEND_URL,
     timeout: 10000,
@@ -19,7 +21,9 @@ export const http = ky.create({
         ],
         beforeError: [
             // (error) => {
-            //     if (error.)
+            //     if (error.response.status === 401) {
+
+            //     }
             // },
             async (error) => {
                 const response = await error.response.json<ErrorResponse>();

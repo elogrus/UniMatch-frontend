@@ -6,5 +6,5 @@ export interface FetchMatchesResponse {
     pairs: MatchT[];
 }
 export const fetchMatches = () => {
-    return http.get<FetchMatchesResponse>("api/pairs");
+    return http.get<FetchMatchesResponse>("api/pairs/");
 };

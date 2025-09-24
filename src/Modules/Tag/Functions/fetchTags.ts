@@ -3,5 +3,5 @@ import type { TagT } from "../types";
 
 export type FetchTagsResponse = TagT[];
 export const fetchTags = () => {
-    return http.get<FetchTagsResponse>("api/hobby/all");
+    return http.get<FetchTagsResponse>("api/hobby/all/");
 };
