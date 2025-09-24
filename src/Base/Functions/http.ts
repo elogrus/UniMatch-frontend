@@ -48,9 +48,9 @@ export const http = ky.create({
                     );
                     const token = await res.json();
                     localStorage.setItem(LocalStorage.TOKEN, token.access);
+                    // попробовать еще раз со свежим токеном
+                    return http(request);
                 }
-                // попробовать еще раз со свежим токеном
-                return http(request);
             },
         ],
         beforeError: [
