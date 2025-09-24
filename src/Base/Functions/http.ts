@@ -1,5 +1,6 @@
 import ky from "ky";
 import { LocalStorage } from "../Variables/localstorage";
+import { saveToken } from "@/Modules/User/Functions/saveToken";
 
 export interface ErrorResponse {
     error: string;
@@ -46,7 +47,7 @@ export const http = ky.create({
                         }
                     );
                     const token = await res.json();
-                    localStorage.setItem(LocalStorage.TOKEN, token.access);
+                    saveToken(token.access)
                     // попробовать еще раз со свежим токеном
                     return http(request);
                 }
