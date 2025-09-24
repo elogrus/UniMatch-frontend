@@ -21,7 +21,7 @@ export const Login = () => {
         fetchFunc: fetchLogin,
         onSuccess: (body) => {
             saveToken(body.access);
-            navigate("/me");
+            navigate("/matches");
         },
     });
     const onSubmit: SubmitHandler<FetchLoginParams> = async (data) => {

@@ -1,3 +1,4 @@
+import { saveToken } from "@/Modules/User/Functions/saveToken";
 import ky from "ky";
 import { LocalStorage } from "../Variables/localstorage";
 
@@ -6,8 +7,6 @@ export interface ErrorResponse {
 }
 
 export type Response<T> = T | ErrorResponse;
-
-
 
 export const http = ky.create({
     prefixUrl: import.meta.env.VITE_BACKEND_URL,
@@ -19,12 +18,39 @@ export const http = ky.create({
                 if (token) request.headers.set("Authorization", token);
             },
         ],
+        afterResponse: [
+            async (request, options, response) => {
+                // если access устарел
+                if (response.status === 401) {
+                    const res = await ky.post<{ access: string }>(
+                        "api/token/refresh/",
+                        {
+                            prefixUrl: import.meta.env.VITE_BACKEND_URL,
+                            retry: 5,
+                            hooks: {
+                                afterResponse: [
+                                    (req, opt, response) => {
+                                        // если рефреш устарел
+                                        if (response.status === 401) {
+                                            window.location.replace("/login");
+                                            return new Response(
+                                                "Redirect to login-page",
+                                                { status: 200 }
+                                            );
+                                        }
+                                    },
+                                ],
+                            },
+                        }
+                    );
+                    const token = await res.json();
+                    saveToken(token.access);
+                }
+                // попробовать еще раз со свежим токеном
+                return ky(request);
+            },
+        ],
         beforeError: [
-            // (error) => {
-            //     if (error.response.status === 401) {
-
-            //     }
-            // },
             async (error) => {
                 const response = await error.response.json<ErrorResponse>();
                 if (response.error) error.message = response.error;

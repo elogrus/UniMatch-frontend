@@ -46,7 +46,7 @@ export const Register = () => {
         fetchFunc: fetchRegister,
         onSuccess: (body) => {
             saveToken(body.access);
-            navigate("/me");
+            navigate("/matches");
         },
     });
     const tagsFetch = useFetch({
