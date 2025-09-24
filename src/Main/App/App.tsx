@@ -1,5 +1,5 @@
 import { BrowserRouter } from "react-router";
-import { MyRouter } from "../MyRouter";
+import { MyRouter } from "./MyRouter";
 
 import './styles/library/text.scss'
 import './styles/library/buttons.scss'

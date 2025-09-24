@@ -97,7 +97,7 @@ export const Register = () => {
                             {...form1.register("first_name", {
                                 required: ValidationErrors.required,
                                 pattern: {
-                                    value: /^[\w.@+-]+$/u,
+                                    value: /^[A-Za-zА-Яа-я.@+-]+$/u,
                                     message: ValidationErrors.allowedSymbols(
                                         `латинские буквы, цифры 0-9, символы "_+-@."`
                                     ),
@@ -110,7 +110,7 @@ export const Register = () => {
                             {...form1.register("last_name", {
                                 required: ValidationErrors.required,
                                 pattern: {
-                                    value: /^[\w.@+-]+$/u,
+                                    value: /^[A-Za-zА-Яа-я.@+-]+$/u,
                                     message: ValidationErrors.allowedSymbols(
                                         `латинские буквы, цифры 0-9, символы "_+-@."`
                                     ),
@@ -215,8 +215,8 @@ export const Register = () => {
                                     message: ValidationErrors.minLength(5),
                                 },
                                 maxLength: {
-                                    value: 15,
-                                    message: ValidationErrors.maxLength(15),
+                                    value: 50,
+                                    message: ValidationErrors.maxLength(50),
                                 },
                                 required: ValidationErrors.required,
                             })}
