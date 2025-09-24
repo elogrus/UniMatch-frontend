@@ -4,13 +4,12 @@ import { ValidationErrors } from "@/Base/ErrorMessages/ValidationErrors";
 import { useFetch } from "@/Base/Hooks/useFetch";
 import { MyInput } from "@/Base/UI/Inputs/MyInput";
 import { Spinner } from "@/Base/UI/Spinner";
-import { LocalStorage } from "@/Base/Variables/localstorage";
 import {
     fetchLogin,
     type FetchLoginParams,
 } from "@/Modules/User/Functions/fetchLogin";
 import { saveToken } from "@/Modules/User/Functions/saveToken";
-import { useForm, type SubmitHandler } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router";
 import { Skeleton } from "../UI/Skeleton";
 
@@ -24,10 +23,6 @@ export const Login = () => {
             navigate("/matches");
         },
     });
-    const onSubmit: SubmitHandler<FetchLoginParams> = async (data) => {
-        const res = await fetchData(data);
-        localStorage.setItem(LocalStorage.TOKEN, res.access);
-    };
     return (
         <Skeleton className={styles.Login}>
             <div className="form">
@@ -56,7 +51,7 @@ export const Login = () => {
             <div className={styles.Buttons + " buttons"}>
                 <button
                     className="ButtonWhite"
-                    onClick={handleSubmit(onSubmit)}
+                    onClick={handleSubmit(fetchData)}
                     disabled={isLoading}
                 >
                     {isLoading ? (
