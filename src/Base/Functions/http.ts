@@ -32,7 +32,7 @@ export const http = ky.create({
                                     (req, opt, response) => {
                                         // если рефреш устарел
                                         if (response.status === 401) {
-                                            // window.location.replace("/login");
+                                            window.location.replace("/login");
                                             localStorage.removeItem(
                                                 LocalStorage.TOKEN
                                             );
