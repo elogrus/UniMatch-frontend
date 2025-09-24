@@ -33,6 +33,9 @@ export const http = ky.create({
                                         // если рефреш устарел
                                         if (response.status === 401) {
                                             window.location.replace("/login");
+                                            localStorage.removeItem(
+                                                LocalStorage.TOKEN
+                                            );
                                             return new Response(
                                                 "Redirect to login-page",
                                                 { status: 200 }
@@ -44,7 +47,7 @@ export const http = ky.create({
                         }
                     );
                     const token = await res.json();
-                    saveToken(token.access);
+                    localStorage.setItem(LocalStorage.TOKEN, token.access);
                 }
                 // попробовать еще раз со свежим токеном
                 return ky(request);
