@@ -20,6 +20,8 @@ import { useEffect, useRef, useState } from "react";
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router";
 import { Skeleton } from "../UI/Skeleton";
+import { ROUTES } from "@/Main/App/MyRouter";
+import { LocalStorage } from "@/Base/Variables/localstorage";
 
 interface FormI extends FetchRegisterParams {
     confirmPassword: string;
@@ -29,6 +31,10 @@ interface FormI extends FetchRegisterParams {
 
 const maxPosition = 4;
 export const Register = () => {
+    useEffect(() => {
+        if (localStorage.getItem(LocalStorage.TOKEN)) navigate(ROUTES.MATCHES);
+    });
+
     // более простого решения я не нашел, поэтому на каждую страницу отдельная форма
     // единственный существенный недостаток - необходимость итерироваться по каждой форме,
     // чтобы собрать все данные полей вместе
@@ -46,7 +52,7 @@ export const Register = () => {
         fetchFunc: fetchRegister,
         onSuccess: (body) => {
             saveToken(body.access);
-            navigate("/matches");
+            navigate(ROUTES.MATCHES);
         },
     });
     const tagsFetch = useFetch({

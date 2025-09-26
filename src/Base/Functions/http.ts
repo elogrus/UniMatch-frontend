@@ -1,6 +1,7 @@
+import { saveToken } from "@/Modules/User/Functions/saveToken";
 import ky from "ky";
 import { LocalStorage } from "../Variables/localstorage";
-import { saveToken } from "@/Modules/User/Functions/saveToken";
+import { ROUTES } from "@/Main/App/MyRouter";
 
 export interface ErrorResponse {
     error: string;
@@ -11,6 +12,7 @@ export type Response<T> = T | ErrorResponse;
 export const http = ky.create({
     prefixUrl: import.meta.env.VITE_BACKEND_URL,
     timeout: 10000,
+    retry: 3,
     hooks: {
         beforeRequest: [
             (request) => {
@@ -32,7 +34,7 @@ export const http = ky.create({
                                     (req, opt, response) => {
                                         // если рефреш устарел
                                         if (response.status === 401) {
-                                            window.location.replace("/login");
+                                            window.location.replace(ROUTES.LOGIN);
                                             localStorage.removeItem(
                                                 LocalStorage.TOKEN
                                             );
@@ -47,7 +49,7 @@ export const http = ky.create({
                         }
                     );
                     const token = await res.json();
-                    saveToken(token.access)
+                    saveToken(token.access);
                     // попробовать еще раз со свежим токеном
                     return http(request);
                 }

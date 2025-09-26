@@ -3,6 +3,7 @@
 }
 
 .CurrentMatch {
+    min-height: 400px;
     background-color: var(--PRIMARY_LIME);
     padding: var(--fz-h2);
     border-radius: var(--fz-h2);
@@ -14,6 +15,16 @@
         padding: 0.3em 4em;
         width: fit-content;
         margin-top: calc(var(--fz-h2) * 2.5);
+    }
+    &:has(.NoMatch) {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .NoMatch {
+        color: var(--PRIMARY_BLACK);
+        font-weight: 600;
+        font-size: calc(var(--fz-h2) * 0.6);
     }
 }
 

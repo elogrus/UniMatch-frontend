@@ -11,7 +11,14 @@ export const MatchesHistory = (props: HTMLAttributes<HTMLDivElement>) => {
         <div className={styles.Container} {...props}>
             <h2>История мэтчей</h2>
             <ul className={styles.MatchesHistory}>
-                {matches.history ? (
+                {!matches.history && (
+                    <Spinner center={true} size="var(--fz-h2)" />
+                )}
+                {matches.history && matches.history.length === 0 && (
+                    <div>Мэтчей нет</div>
+                )}
+                {matches.history &&
+                    matches.history.length !== 0 &&
                     matches.history.map((match, index) => {
                         if (!isOpen && index >= 3) return;
                         return (
@@ -32,16 +39,15 @@ export const MatchesHistory = (props: HTMLAttributes<HTMLDivElement>) => {
                                 </div>
                             </li>
                         );
-                    })
-                ) : (
-                    <Spinner center={true} size="var(--fz-h2)" />
+                    })}
+                {matches.history && matches.history.length > 3 && (
+                    <button
+                        className="Button"
+                        onClick={() => setIsOpen((val) => !val)}
+                    >
+                        {isOpen ? "Скрыть ←" : "Показать всех →"}
+                    </button>
                 )}
-                <button
-                    className="Button"
-                    onClick={() => setIsOpen((val) => !val)}
-                >
-                    {isOpen ? "Скрыть ←" : "Показать всех →"}
-                </button>
             </ul>
         </div>
     );

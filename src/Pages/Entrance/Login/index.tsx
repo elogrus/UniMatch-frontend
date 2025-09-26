@@ -12,6 +12,9 @@ import { saveToken } from "@/Modules/User/Functions/saveToken";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router";
 import { Skeleton } from "../UI/Skeleton";
+import { ROUTES } from "@/Main/App/MyRouter";
+import { useEffect } from "react";
+import { LocalStorage } from "@/Base/Variables/localstorage";
 
 export const Login = () => {
     const { register, handleSubmit, formState } = useForm<FetchLoginParams>();
@@ -20,8 +23,11 @@ export const Login = () => {
         fetchFunc: fetchLogin,
         onSuccess: (body) => {
             saveToken(body.access);
-            navigate("/matches");
+            navigate(ROUTES.MATCHES);
         },
+    });
+    useEffect(() => {
+        if (localStorage.getItem(LocalStorage.TOKEN)) navigate(ROUTES.MATCHES);
     });
     return (
         <Skeleton className={styles.Login}>

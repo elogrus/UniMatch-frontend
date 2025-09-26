@@ -6,6 +6,7 @@ import { Spinner } from "@/Base/UI/Spinner";
 
 export const CurrentMatch = (props: HTMLAttributes<HTMLDivElement>) => {
     const currentMatch = useMatches((state) => state.currentPair);
+    const wasLoaded = useMatches((state) => state.wasLoaded);
 
     return (
         <div className={styles.Container}>
@@ -35,6 +36,8 @@ export const CurrentMatch = (props: HTMLAttributes<HTMLDivElement>) => {
                         </ul>
                         <button className="ButtonTblack">Общаться →</button>
                     </>
+                ) : wasLoaded ? (
+                    <span className={styles.NoMatch}>Мэтча пока нет =(</span>
                 ) : (
                     <Spinner
                         center={true}
