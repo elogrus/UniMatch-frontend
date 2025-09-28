@@ -101,7 +101,7 @@ export const Settings = () => {
                     })}
                 />
                 <button
-                    className="ButtonWhite"
+                    className={"ButtonWhite " + styles.SubmitBtn}
                     onClick={handleSubmit((data) => {
                         fetchData({
                             ...data,

@@ -15,6 +15,7 @@ export const Navbar = ({ className, user, ...otherProps }: NavbarProps) => {
         <nav className={classname(className, styles.Navbar)} {...otherProps}>
             {user ? (
                 <>
+                    <Link to="/matches">Мои мэтчи</Link>
                     <Link to="/settings">Редактировать профиль</Link>
                 </>
             ) : (

@@ -1,21 +1,33 @@
+import { useFetch } from "@/Base/Hooks/useFetch";
+import { fetchNextMatchTime } from "../../Functions/fetchNextMatchTime";
+import { formatTime } from "./Functions/formatTime";
 import styles from "./styles.module.scss";
-
-// const formatTime = (days: number, hours: number, minutes: number) => {
-//     const result = []
-//     if (day)
-// }
+import { Spinner } from "@/Base/UI/Spinner";
+import { useEffect } from "react";
 
 export const NextMatch = () => {
-    // const time = useFetch({
-    //     fetchFunc: fetchNextMatchTime
-    // })
+    const { response, fetchData } = useFetch({
+        fetchFunc: fetchNextMatchTime,
+    });
+    useEffect(() => {
+        fetchData();
+    }, []);
     return (
         <div className={styles.Container}>
             <h2>Следующий мэтч</h2>
             <div className={styles.NextMatch}>
-                <button disabled className="ButtonTgray">
-                    Через 4 дня
-                </button>
+                {response ? (
+                    <button disabled className="ButtonTgray">
+                        Через{" "}
+                        {formatTime({
+                            days: response?.days_left,
+                            hours: response?.hours_left,
+                            minutes: response?.minutes_left,
+                        })}
+                    </button>
+                ) : (
+                    <Spinner center={true} />
+                )}
             </div>
         </div>
     );

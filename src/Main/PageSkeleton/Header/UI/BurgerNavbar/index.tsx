@@ -32,9 +32,14 @@ export const BurgerNavbar = ({
                     isActive={open}
                     onClick={() => setOpen((open) => !open)}
                 />
-                <nav>
+                <nav
+                    onClick={(e) => {
+                        if ((e.target as Element).nodeName === 'A') setOpen(false);
+                    }}
+                >
                     {user ? (
                         <>
+                            <Link to="/matches">Мои мэтчи</Link>
                             <Link to="/settings">Редактировать профиль</Link>
                         </>
                     ) : (

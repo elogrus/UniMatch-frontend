@@ -16,7 +16,6 @@ export const TagSelector = ({
     className,
     ...props
 }: TagSelectorProps) => {
-    console.log("tags", tags);
     let sortedTags = tags;
     if (tags && checkedInputs) {
         // сначала пойдут те теги, которые выбраны у пользователя, потом остальные
