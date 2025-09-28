@@ -170,14 +170,6 @@ export const Register = () => {
                                         }),
                                     }}
                                 />
-                                <button
-                                    className="ButtonWhite"
-                                    onClick={() =>
-                                        console.log(form2.getValues("hobby"))
-                                    }
-                                >
-                                    консоль лог
-                                </button>
                             </>
                         )}
                     </div>
