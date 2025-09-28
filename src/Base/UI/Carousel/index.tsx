@@ -11,7 +11,10 @@ interface CarouselProps extends HTMLAttributes<HTMLDivElement> {
     position: number;
     setPosition: React.Dispatch<React.SetStateAction<number>>;
     tapeClassname?: string;
-    onPageScroll?: (pastPosition: number, pastPageElement: Element) => boolean | void;
+    onPageScroll?: (
+        pastPosition: number,
+        pastPageElement: Element
+    ) => boolean | void;
 }
 
 export interface CarouselRef {

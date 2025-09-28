@@ -30,8 +30,8 @@ const formatMinutes = (minutes: number) => {
 
 export const formatTime = (time: TimeToStringParam) => {
     if (time.days) return formatDays(time.days);
-    if (time.hours) return formatDays(time.hours);
-    if (time.minutes) return formatDays(time.minutes);
+    if (time.hours) return formatHours(time.hours);
+    if (time.minutes) return formatMinutes(time.minutes);
     // return `${formatDays(time.days)} ${formatHours(time.hours)} ${formatMinutes(
     //     time.minutes
     // )}`;
