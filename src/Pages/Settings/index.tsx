@@ -102,11 +102,11 @@ export const Settings = () => {
                 <button
                     className="ButtonWhite"
                     onClick={handleSubmit((data) => {
-                        user.updateUser()
                         fetchData({
                             ...data,
                             hobby: data.hobby.map((val) => +val),
                         });
+                        user.updateUser();
                     })}
                     disabled={isLoading}
                 >
