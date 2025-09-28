@@ -26,6 +26,11 @@
         font-weight: 600;
         font-size: calc(var(--fz-h2) * 0.6);
     }
+    &:has(.Spinner) {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
 }
 
 .Profile {

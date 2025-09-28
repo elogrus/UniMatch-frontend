@@ -75,7 +75,10 @@ export const Register = () => {
             const result = form.watch();
             data = { ...data, ...result };
         }
-        fetchData(data);
+        fetchData({
+            ...data,
+            hobby: data.hobby.map((val) => +val),
+        });
     };
 
     return (
@@ -163,10 +166,18 @@ export const Register = () => {
                                                     );
                                             },
                                             setValueAs: (value: TagT) =>
-                                                value.id,
+                                                +value.id,
                                         }),
                                     }}
                                 />
+                                <button
+                                    className="ButtonWhite"
+                                    onClick={() =>
+                                        console.log(form2.getValues("hobby"))
+                                    }
+                                >
+                                    консоль лог
+                                </button>
                             </>
                         )}
                     </div>
@@ -212,7 +223,7 @@ export const Register = () => {
                             {...form3.register("password", {
                                 pattern: {
                                     // eslint-disable-next-line no-useless-escape
-                                    value: /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[!@#\.,\/\$%\^&\*\(\)\\\-\_=\[\]{}:;"'<>\?]).*$/,
+                                    value: /^(?=.*[A-Z])(?=.*[a-z])(?=.*[А-Я])(?=.*[а-я])(?=.*\d)(?=.*[!@#\.,\/\$%\^&\*\(\)\\\-\_=\[\]{}:;"'<>\?]).*$/,
                                     message:
                                         "Пароль должен содержать заглавную и строчную буквы, специальный символ, цифру",
                                 },

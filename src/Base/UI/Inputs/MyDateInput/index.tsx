@@ -16,11 +16,12 @@ export const MyDateInput = ({
     className,
     type = "date",
     placeholder,
+    defaultValue="",
     onChange = () => {},
     onClick = () => {},
     ...props
 }: MyDateInputProps) => {
-    const [value, setValue] = useState("");
+    const [value, setValue] = useState(defaultValue);
     return (
         <label
             className={classname(

@@ -7,7 +7,7 @@ interface SpinnerProps extends HTMLAttributes<HTMLSpanElement> {
     center?: boolean;
 }
 
-export const Spinner = ({ color, size, center, ...props }: SpinnerProps) => {
+export const Spinner = ({ color, size, center, className='', ...props }: SpinnerProps) => {
     return (
         <span
             style={{
@@ -17,7 +17,7 @@ export const Spinner = ({ color, size, center, ...props }: SpinnerProps) => {
                 width: size || "",
                 height: size || "",
             }}
-            className={styles.Spinner}
+            className={styles.Spinner + ' ' + className}
             {...props}
         ></span>
     );

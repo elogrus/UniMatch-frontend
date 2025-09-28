@@ -1,30 +1,49 @@
-import type { HTMLAttributes, InputHTMLAttributes } from "react";
-import styles from "./styles.module.scss";
-import type { TagT } from "../../types";
 import { Spinner } from "@/Base/UI/Spinner";
+import type { HTMLAttributes, InputHTMLAttributes } from "react";
+import type { TagT } from "../../types";
+import styles from "./styles.module.scss";
 
 interface TagSelectorProps extends HTMLAttributes<HTMLDivElement> {
     tags: TagT[] | null;
     propsToInput?: InputHTMLAttributes<HTMLInputElement>;
+    checkedInputs?: TagT[];
 }
 
 export const TagSelector = ({
     tags = null,
     propsToInput = {},
+    checkedInputs = [],
     className,
     ...props
 }: TagSelectorProps) => {
     console.log("tags", tags);
+    let sortedTags = tags;
+    if (tags && checkedInputs) {
+        // сначала пойдут те теги, которые выбраны у пользователя, потом остальные
+        sortedTags = tags.sort((tag) =>
+            checkedInputs.findIndex(
+                (checkedTag) => tag.id === checkedTag.id
+            ) === -1
+                ? 1
+                : -1
+        );
+    }
+
     return (
         <div
-            style={{ gridTemplateColumns: "1fr 1fr" }}
+            // style={{ gridTemplateColumns: "1fr 1fr" }}
             className={styles.TagSelector + " " + className}
             {...props}
         >
-            {tags ? (
-                tags.map((tag) => (
+            {sortedTags ? (
+                sortedTags.map((tag) => (
                     <label key={tag.id}>
                         <input
+                            defaultChecked={
+                                !!checkedInputs.find(
+                                    (checkedTag) => checkedTag.id === tag.id
+                                )
+                            }
                             type="checkbox"
                             value={tag.id}
                             {...propsToInput}

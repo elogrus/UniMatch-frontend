@@ -8,4 +8,5 @@ export type UserT = {
     chat_id: null;
     image: null;
     hobby: TagT[];
+    tg_link: string;
 };

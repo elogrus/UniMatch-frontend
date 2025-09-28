@@ -1,0 +1,11 @@
+.Settings {
+    & > p {
+        color: var(--STATUS_RED);
+    }
+}
+
+.ProfilePanel {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}

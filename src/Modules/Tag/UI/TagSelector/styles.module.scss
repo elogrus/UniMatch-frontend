@@ -4,7 +4,7 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    
+
     font-size: var(--fz-p);
     gap: 0.5em;
     overflow-y: scroll;
@@ -26,6 +26,10 @@
             background-color: var(--PRIMARY_LIME);
             color: var(--PRIMARY_BLACK);
         }
+    }
+    p {
+        font-size: var(--fz-p);
+        color: var(--STATUS_RED);
     }
 }
 

@@ -1,6 +1,6 @@
 import { type HTMLAttributes } from "react";
 import { useMatches } from "../../Store/useMatches";
-import Photo from "./Assets/photo.gif";
+import Photo from "@/Base/Assets/ebanutiyYasher.gif";
 import styles from "./styles.module.scss";
 import { Spinner } from "@/Base/UI/Spinner";
 
@@ -40,6 +40,7 @@ export const CurrentMatch = (props: HTMLAttributes<HTMLDivElement>) => {
                     <span className={styles.NoMatch}>Мэтча пока нет =(</span>
                 ) : (
                     <Spinner
+                        className={styles.Spinner}
                         center={true}
                         size="var(--fz-h2)"
                         color="var(--PRIMARY_BLACK)"

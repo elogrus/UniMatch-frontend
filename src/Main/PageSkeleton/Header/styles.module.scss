@@ -15,9 +15,28 @@
     align-items: center;
     gap: 18px;
     height: 100%;
-}
-.Logo {
-    height: 100%;
+    font-size: calc(var(--fz-h2) * 0.75);
+    color: var(--BG_DARKGRAY);
+    font-weight: 500;
+    .Logo {
+        height: 100%;
+    }
+    .Separator {
+        width: 1px;
+        height: 100%;
+        background-color: var(--BG_DARKGRAY);
+    }
+    .Panel {
+        display: flex;
+        align-items: center;
+        gap: 0.5em;
+        font-size: 0.7em;
+        img {
+            height: 1.5em;
+            width: 1.5em;
+            border-radius: 1em;
+        }
+    }
 }
 
 .Right {

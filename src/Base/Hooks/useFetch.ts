@@ -16,7 +16,7 @@ interface UseFetchOptions<T extends FetchFunc<any, any>> {
     ) => void;
     onError?: (error: Error) => void;
 }
-// https://www.youtube.com/watch?v=bnTAOB3P6nM
+// TODO: нет типизации параметров возвращаемой fetchData()
 export const useFetch = <T extends FetchFunc<any, any>>({
     fetchFunc,
     onSuccess = () => {},

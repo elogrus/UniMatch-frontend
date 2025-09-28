@@ -3,13 +3,16 @@ import { BurgerButton } from "../BurgerButton";
 import styles from "./styles.module.scss";
 import { classname } from "@/Base/Functions/classname";
 import { Link } from "react-router";
+import type { UserT } from "@/Modules/User/types";
 
 interface BurgerNavbarProps extends HTMLAttributes<HTMLDivElement> {
     className: string;
+    user: UserT | null;
 }
 
 export const BurgerNavbar = ({
     className,
+    user,
     ...otherProps
 }: BurgerNavbarProps) => {
     const [open, setOpen] = useState(false);
@@ -30,14 +33,22 @@ export const BurgerNavbar = ({
                     onClick={() => setOpen((open) => !open)}
                 />
                 <nav>
-                    <Link to="#">О проекте</Link>
-                    <Link to="#">Правила</Link>
-                    <Link className={styles.BoldLink} to="/register">
-                        Регистрация
-                    </Link>
-                    <Link className={styles.BoldLink} to="/login">
-                        Вход
-                    </Link>
+                    {user ? (
+                        <>
+                            <Link to="/settings">Редактировать профиль</Link>
+                        </>
+                    ) : (
+                        <>
+                            <Link to="#">О проекте</Link>
+                            <Link to="#">Правила</Link>
+                            <Link className={styles.BoldLink} to="/register">
+                                Регистрация
+                            </Link>
+                            <Link className={styles.BoldLink} to="/login">
+                                Вход
+                            </Link>
+                        </>
+                    )}
                 </nav>
             </div>
         </div>
