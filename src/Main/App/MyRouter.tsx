@@ -27,9 +27,9 @@ export const MyRouter = () => {
     return (
         <Routes>
             <Route element={<PageSkeleton />}>
+                <Route index element={<Index />} />
+                <Route path={ROUTES.ABOUT} element={<About />} />
                 <Route element={<ProtectedRoute />}>
-                    <Route index element={<Index />} />
-                    <Route path={ROUTES.ABOUT} element={<About />} />
                     <Route path={ROUTES.MATCHES} element={<Matches />} />
                     <Route path={ROUTES.SETTINGS} element={<Settings />} />
                 </Route>
