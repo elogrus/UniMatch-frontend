@@ -15,14 +15,17 @@ import { Skeleton } from "../UI/Skeleton";
 import { ROUTES } from "@/Main/App/MyRouter";
 import { useEffect } from "react";
 import { LocalStorage } from "@/Base/Variables/localstorage";
+import { useUser } from "@/Modules/User/Store/useUser";
 
 export const Login = () => {
     const { register, handleSubmit, formState } = useForm<FetchLoginParams>();
     const navigate = useNavigate();
+    const updateUser = useUser((state) => state.updateUser);
     const { fetchData, error, isLoading } = useFetch({
         fetchFunc: fetchLogin,
         onSuccess: (body) => {
             saveToken(body.access);
+            updateUser();
             navigate(ROUTES.MATCHES);
         },
     });

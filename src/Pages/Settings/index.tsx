@@ -102,7 +102,7 @@ export const Settings = () => {
                 <button
                     className="ButtonWhite"
                     onClick={handleSubmit((data) => {
-                        console.log("SAVING DATA", data);
+                        user.updateUser()
                         fetchData({
                             ...data,
                             hobby: data.hobby.map((val) => +val),

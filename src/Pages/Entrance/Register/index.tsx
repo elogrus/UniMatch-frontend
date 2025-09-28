@@ -22,6 +22,7 @@ import { Link, useNavigate } from "react-router";
 import { Skeleton } from "../UI/Skeleton";
 import { ROUTES } from "@/Main/App/MyRouter";
 import { LocalStorage } from "@/Base/Variables/localstorage";
+import { useUser } from "@/Modules/User/Store/useUser";
 
 interface FormI extends FetchRegisterParams {
     confirmPassword: string;
@@ -47,11 +48,13 @@ export const Register = () => {
 
     const [carouselPos, setCarouselPos] = useState(0);
     const carouselRef = useRef<CarouselRef>(null);
+    const updateUser = useUser((state) => state.updateUser)
     const navigate = useNavigate();
     const { fetchData, error, isLoading } = useFetch({
         fetchFunc: fetchRegister,
         onSuccess: (body) => {
             saveToken(body.access);
+            updateUser()
             navigate(ROUTES.MATCHES);
         },
     });
