@@ -21,6 +21,7 @@ export const Settings = () => {
     >();
     const { fetchData, error, isLoading } = useFetch({
         fetchFunc: fetchUpdateUser,
+        onSuccess: user.updateUser,
     });
     if (!user.user) return <Spinner center={true} />;
     return (
@@ -106,7 +107,6 @@ export const Settings = () => {
                             ...data,
                             hobby: data.hobby.map((val) => +val),
                         });
-                        user.updateUser();
                     })}
                     disabled={isLoading}
                 >
