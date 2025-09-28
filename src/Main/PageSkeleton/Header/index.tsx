@@ -16,7 +16,10 @@ export const Header = () => {
                     <div className={styles.Panel}>
                         <img src={Photo} />
                         <span>
-                            {user.user.first_name} {user.user.last_name}
+                            {user.user.first_name} 
+                            {' '}
+                            {/* <br /> */}
+                            {/* {user.user.last_name} */}
                         </span>
                     </div>
                 ) : (

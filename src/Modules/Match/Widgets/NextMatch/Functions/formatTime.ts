@@ -29,7 +29,10 @@ const formatMinutes = (minutes: number) => {
 };
 
 export const formatTime = (time: TimeToStringParam) => {
-    return `${formatDays(time.days)} ${formatHours(time.hours)} ${formatMinutes(
-        time.minutes
-    )}`;
+    if (time.days) return formatDays(time.days);
+    if (time.hours) return formatDays(time.hours);
+    if (time.minutes) return formatDays(time.minutes);
+    // return `${formatDays(time.days)} ${formatHours(time.hours)} ${formatMinutes(
+    //     time.minutes
+    // )}`;
 };
