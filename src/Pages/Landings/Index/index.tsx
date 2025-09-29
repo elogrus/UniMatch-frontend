@@ -14,7 +14,7 @@ export const Index = () => {
                     <br />
                     Рандомно.
                 </h1>
-                <Link className={styles.Link} to="#">
+                <Link className={styles.Link} to="/login">
                     Начать
                 </Link>
             </section>

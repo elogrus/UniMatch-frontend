@@ -4,7 +4,6 @@ import { type InputHTMLAttributes } from "react";
 
 interface MyCheckboxI extends InputHTMLAttributes<HTMLInputElement> {
     containerClassName?: string;
-    children?: string;
     type?: "checkbox";
 }
 

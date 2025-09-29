@@ -1,8 +1,8 @@
 import { classname } from "@/Base/Functions/classname";
-import defaultStyles from "../default.module.scss";
 import styles from "./styles.module.scss";
 
 import { useState, type InputHTMLAttributes } from "react";
+import { Error } from "../../Error";
 
 interface MyDateInputProps extends InputHTMLAttributes<HTMLInputElement> {
     error?: string;
@@ -16,40 +16,29 @@ export const MyDateInput = ({
     className,
     type = "date",
     placeholder,
-    defaultValue="",
+    defaultValue = "",
     onChange = () => {},
-    onClick = () => {},
     ...props
 }: MyDateInputProps) => {
     const [value, setValue] = useState(defaultValue);
     return (
-        <label
-            className={classname(
-                defaultStyles.MyInput,
-                "input",
-                styles.MyDateInput,
-                className
-            )}
-        >
-            {error && <span className={defaultStyles.Error}>{error}</span>}
-            <div className={styles.FakeInput + " " + defaultStyles.Input}>
-                {value ? (
-                    <span className={styles.Value}>{value}</span>
-                ) : (
-                    <span className={styles.Placeholder}>{placeholder}</span>
-                )}
-            </div>
+        <label className={classname(styles.Label, "input", className)}>
+            {error && <Error fzMul={0.73}>{error}</Error>}
+            <span
+                className={styles.Placeholder}
+                style={value ? { display: "none" } : {}}
+            >
+                {placeholder}
+            </span>
             <input
                 value={value}
                 onChange={(e) => {
                     setValue(e.target.value);
                     onChange(e);
                 }}
-                onClick={(e) => {
-                    e.currentTarget.showPicker();
-                    onClick(e);
-                }}
                 type={type}
+                style={value ? { color: "var(--PRIMARY_WHITE)" } : {}}
+                className={styles.Input}
                 {...props}
             />
         </label>

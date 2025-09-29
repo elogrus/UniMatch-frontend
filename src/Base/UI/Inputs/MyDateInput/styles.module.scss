@@ -1,38 +1,32 @@
-.MyDateInput {
+.Label {
     position: relative;
-    cursor: pointer;
-
-    input {
-        opacity: 0;
-        position: absolute;
-        top: 0;
-        left: 2%;
-        width: 100%;
-        height: 100%;
-        pointer-events: none;
+    &:has(.Input:focus) .Placeholder {
+        display: none;
+    }
+}
+.Input {
+    line-height: 100%;
+    width: 100%;
+    border: 1px solid var(--PRIMARY_LIGHTGRAY);
+    color: transparent;
+    padding: 0.8em 1.2em;
+    border-radius: 0.9em;
+    color-scheme: dark;
+    background-color: transparent;
+    &:focus {
+        border-color: var(--PRIMARY_WHITE);
+        color: var(--PRIMARY_WHITE) !important;
+    }
+    &::-webkit-calendar-picker-indicator {
+        cursor: pointer;
     }
 }
 
-.FakeInput {
-    position: relative;
-    padding: 0.921em 1.2em !important;
-    width: 100%;
-    .Placeholder {
-        color: var(--PRIMARY_LIGHTGRAY);
-        text-decoration: underline;
-    }
-    .Value {
-        color: var(--PRIMARY_WHITE);
-    }
-    &:after {
-        position: absolute;
-        content: "";
-        mask: url("./Assets/calendar.svg") no-repeat center / contain;
-        background-color: #fff;
-        top: 50%;
-        right: 0.8em;
-        transform: translateY(-50%);
-        height: 1.3em;
-        width: 1.3em;
-    }
+.Placeholder {
+    position: absolute;
+    left: 1.2em;
+    bottom: 0.8em;
+    color: var(--PRIMARY_LIGHTGRAY);
+    text-decoration: underline;
+    pointer-events: none;
 }

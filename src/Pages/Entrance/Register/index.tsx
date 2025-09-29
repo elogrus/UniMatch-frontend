@@ -23,6 +23,7 @@ import { Skeleton } from "../UI/Skeleton";
 import { ROUTES } from "@/Main/App/MyRouter";
 import { LocalStorage } from "@/Base/Variables/localstorage";
 import { useUser } from "@/Modules/User/Store/useUser";
+import { MyA } from "@/Base/UI/MyA";
 
 interface FormI extends FetchRegisterParams {
     confirmPassword: string;
@@ -46,15 +47,16 @@ export const Register = () => {
 
     const forms = [form1, form2, form3, form4];
 
-    const [carouselPos, setCarouselPos] = useState(0);
+    const [carouselPos, setCarouselPos] = useState(3);
+    // const [carouselPos, setCarouselPos] = useState(0);
     const carouselRef = useRef<CarouselRef>(null);
-    const updateUser = useUser((state) => state.updateUser)
+    const updateUser = useUser((state) => state.updateUser);
     const navigate = useNavigate();
     const { fetchData, error, isLoading } = useFetch({
         fetchFunc: fetchRegister,
         onSuccess: (body) => {
             saveToken(body.access);
-            updateUser()
+            updateUser();
             navigate(ROUTES.MATCHES);
         },
     });
@@ -67,7 +69,6 @@ export const Register = () => {
     const goForward = async () => {
         const validationResult = await forms[carouselPos].trigger();
         if (validationResult) carouselRef.current?.goForward();
-        console.log(form2.watch().hobby);
     };
     const submit = async () => {
         const validationResult = await forms[carouselPos].trigger();
@@ -157,7 +158,6 @@ export const Register = () => {
                                     tags={tagsFetch.response || []}
                                     propsToInput={{
                                         ...form2.register("hobby", {
-                                            required: ValidationErrors.required,
                                             validate: (value) => {
                                                 if (value.length < 3)
                                                     return ValidationErrors.min(
@@ -219,8 +219,7 @@ export const Register = () => {
                                 pattern: {
                                     // eslint-disable-next-line no-useless-escape
                                     value: /^(?=.*[A-ZА-Я])(?=.*[a-zа-я])(?=.*\d)(?=.*[!@#\.,\/\$%\^&\*\(\)\\\-\_=\[\]{}:;"'<>\?]).*$/,
-                                    message:
-                                        "Пароль должен содержать заглавную и строчную буквы, специальный символ, цифру",
+                                    message: ValidationErrors.password,
                                 },
                                 minLength: {
                                     value: 5,
@@ -257,33 +256,31 @@ export const Register = () => {
                             })}
                             className={styles.Checkbox}
                         >
-                            Я согласен с Условиями пользования
+                            Я согласен с{" "}
+                            <MyA
+                                style={{ textDecoration: "underline" }}
+                                href="#"
+                            >
+                                Условиями пользования
+                            </MyA>
                         </MyCheckbox>
                         <MyCheckbox
                             {...form4.register("agreePrivacy", {
                                 required: ValidationErrors.required,
                             })}
                         >
-                            Я согласен с Политикой конфиденциальности
+                            Я согласен с{" "}
+                            <MyA
+                                style={{ textDecoration: "underline" }}
+                                href="#"
+                            >
+                                Политикой конфиденциальности
+                            </MyA>
                         </MyCheckbox>
                     </div>
                 </Carousel>
             </div>
             <div className={styles.Buttons + " buttons"}>
-                {carouselPos !== maxPosition - 1 ? (
-                    <button className="ButtonWhite" onClick={goForward}>
-                        Далее
-                    </button>
-                ) : (
-                    <button
-                        disabled={isLoading || !form4.formState.isValid}
-                        className="ButtonWhite"
-                        onClick={submit}
-                    >
-                        {isLoading ? <Spinner /> : "Вперед!"}
-                    </button>
-                )}
-
                 {carouselPos === 0 && (
                     <Link to="/login" className="ButtonDarkgray">
                         Уже есть аккаунт
@@ -295,6 +292,20 @@ export const Register = () => {
                         onClick={() => carouselRef.current?.goBack()}
                     >
                         Назад
+                    </button>
+                )}
+
+                {carouselPos !== maxPosition - 1 ? (
+                    <button className="ButtonWhite" onClick={goForward}>
+                        Далее
+                    </button>
+                ) : (
+                    <button
+                        disabled={isLoading || !form4.formState.isValid}
+                        className="ButtonWhite"
+                        onClick={submit}
+                    >
+                        {isLoading ? <Spinner /> : "Вперед!"}
                     </button>
                 )}
             </div>

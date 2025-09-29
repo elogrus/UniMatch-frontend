@@ -1,9 +1,11 @@
 import {
     Children,
+    cloneElement,
     forwardRef,
     useImperativeHandle,
     useRef,
     type HTMLAttributes,
+    type ReactElement,
 } from "react";
 import styles from "./styles.module.scss";
 
@@ -11,6 +13,7 @@ interface CarouselProps extends HTMLAttributes<HTMLDivElement> {
     position: number;
     setPosition: React.Dispatch<React.SetStateAction<number>>;
     tapeClassname?: string;
+    children: Array<ReactElement<HTMLDivElement>>;
     onPageScroll?: (
         pastPosition: number,
         pastPageElement: Element
@@ -50,6 +53,13 @@ export const Carousel = forwardRef<CarouselRef, CarouselProps>(
                 return oldPos;
             }
         };
+        const newChildren = Children.map(children, (child, index) => {
+            if (index === position) return child;
+            return cloneElement(child, {
+                inert: true,
+            });
+        });
+
         useImperativeHandle(ref, () => ({
             goForward: () =>
                 setPosition((pos) => {
@@ -83,7 +93,7 @@ export const Carousel = forwardRef<CarouselRef, CarouselProps>(
                     style={{ left: -100 * position + "%" }}
                     className={styles.Tape + " " + tapeClassname}
                 >
-                    {children}
+                    {newChildren}
                 </div>
             </div>
         );

@@ -33,7 +33,6 @@ export const Settings = () => {
                 propsToInput={{
                     ...register("hobby", {
                         validate: (value) => {
-                            console.log("valdating hobby", value);
                             if (value.length < 3)
                                 return ValidationErrors.min(3);
                             if (value.length > 10)

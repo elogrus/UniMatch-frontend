@@ -86,7 +86,7 @@
         }
 
         :global(.buttons) {
-            flex-direction: column;
+            flex-direction: column-reverse;
             & > *:first-child {
                 width: 100%;
             }

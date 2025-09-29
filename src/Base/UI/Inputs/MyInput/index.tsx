@@ -1,4 +1,5 @@
-import styles from "../default.module.scss";
+import { Error } from "../../Error";
+import styles from "./styles.module.scss";
 
 import type { InputHTMLAttributes } from "react";
 
@@ -12,9 +13,9 @@ interface MyInputProps extends InputHTMLAttributes<HTMLInputElement> {
 
 export const MyInput = ({ error, className, ...props }: MyInputProps) => {
     return (
-        <label className={styles.MyInput + " input " + className}>
-            {error && <span className={styles.Error}>{error}</span>}
-            <input {...props} />
+        <label className={styles.MyLabel + " input " + className}>
+            {error && <Error fzMul={0.73}>{error}</Error>}
+            <input className={styles.MyInput} {...props} />
         </label>
     );
 };
