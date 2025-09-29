@@ -10,4 +10,5 @@ COPY . .
 
 RUN npm ci
 
-CMD ["npm", "run", "dev"]
+CMD ["npm", "run", "build"]
+# /app/dist
