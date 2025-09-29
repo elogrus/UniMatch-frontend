@@ -4,6 +4,7 @@ import { Link } from "react-router";
 import Unimatch from "./Assets/unimatch.png";
 import Algorithm from "./Assets/algorithmExample.png";
 import CoolGuys from "./Assets/coolGuys.png";
+import { ROUTES } from "@/Main/App/MyRouter";
 
 export const Index = () => {
     return (
@@ -14,7 +15,7 @@ export const Index = () => {
                     <br />
                     Рандомно.
                 </h1>
-                <Link className={styles.Link} to="/login">
+                <Link className={styles.Link} to={ROUTES.LOGIN}>
                     Начать
                 </Link>
             </section>
@@ -40,8 +41,7 @@ export const Index = () => {
                     Вы регистрируетесь, заполняете данные о себе и выбираете
                     интересы с помощью тэгов.
                     <br />
-                    <br />
-                    И раз в неделю алгоритм будет выбирать вам пару для
+                    <br />И раз в неделю алгоритм будет выбирать вам пару для
                     общения. <i>(Все необходимое придет в телеграм.) </i>
                     <br />
                     Вам остается только хорошо провести время)

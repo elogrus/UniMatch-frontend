@@ -9,6 +9,7 @@ import { Navigate, Outlet, Route, Routes } from "react-router";
 import { PageSkeleton } from "../PageSkeleton";
 
 export const ROUTES = {
+    INDEX: "/",
     ABOUT: "/about",
     MATCHES: "/matches",
     SETTINGS: "/settings",

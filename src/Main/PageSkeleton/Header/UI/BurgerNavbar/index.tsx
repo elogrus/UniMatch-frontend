@@ -50,10 +50,10 @@ export const BurgerNavbar = ({
                         <>
                             <Link to="#">О проекте</Link>
                             <Link to="#">Правила</Link>
-                            <Link className={styles.BoldLink} to="/register">
+                            <Link className={styles.BoldLink} to={ROUTES.REGISTER}>
                                 Регистрация
                             </Link>
-                            <Link className={styles.BoldLink} to="/login">
+                            <Link className={styles.BoldLink} to={ROUTES.LOGIN}>
                                 Вход
                             </Link>
                         </>

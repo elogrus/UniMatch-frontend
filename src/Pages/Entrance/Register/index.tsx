@@ -134,6 +134,14 @@ export const Register = () => {
                             placeholder="Дата рождения"
                             {...form1.register("birth", {
                                 required: ValidationErrors.required,
+                                validate: (value) => {
+                                    // 32503680000000 - 1 января 3000г
+                                    if (
+                                        new Date(value).getTime() >=
+                                        32503680000000
+                                    )
+                                        return "Слишком большая дата";
+                                },
                             })}
                             error={form1.formState.errors.birth?.message}
                         />
@@ -281,7 +289,7 @@ export const Register = () => {
             </div>
             <div className={styles.Buttons + " buttons"}>
                 {carouselPos === 0 && (
-                    <Link to="/login" className="ButtonDarkgray">
+                    <Link to={ROUTES.REGISTER} className="ButtonDarkgray">
                         Уже есть аккаунт
                     </Link>
                 )}
