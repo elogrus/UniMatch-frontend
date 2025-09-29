@@ -1,9 +1,10 @@
 .Label {
     position: relative;
-    &:has(.Input:focus) .Placeholder {
+    &:focus-within .Placeholder {
         display: none;
     }
 }
+
 .Input {
     line-height: 100%;
     width: 100%;
