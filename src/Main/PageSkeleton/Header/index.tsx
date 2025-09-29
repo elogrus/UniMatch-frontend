@@ -26,7 +26,7 @@ export const Header = () => {
                         <span>{user.user.first_name}</span>
                     </div>
                 ) : (
-                    "Uni Match"
+                    "Uni match"
                 )}
             </div>
             <div className={styles.Right}>
