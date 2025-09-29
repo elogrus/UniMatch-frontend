@@ -18,7 +18,8 @@
     top: 0;
     max-width: 1920px;
     padding: 30px 25px 0;
-    img {
+    .Logo {
+        cursor: pointer;
         height: 55px;
     }
 }
@@ -86,7 +87,7 @@
         }
 
         :global(.buttons) {
-            flex-direction: column-reverse;
+            flex-direction: column;
             & > *:first-child {
                 width: 100%;
             }

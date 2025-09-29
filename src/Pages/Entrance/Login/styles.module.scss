@@ -4,12 +4,7 @@
     }
 }
 
-.Buttons {
-    :not(:first-child) {
-        width: 100%;
-    }
-    > * {
-        min-width: 30%;
-    }
+.Buttons > *:not(:only-child) {
+    min-width: 30%;
 }
 

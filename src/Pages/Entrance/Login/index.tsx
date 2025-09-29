@@ -10,7 +10,7 @@ import {
 } from "@/Modules/User/Functions/fetchLogin";
 import { saveToken } from "@/Modules/User/Functions/saveToken";
 import { useForm } from "react-hook-form";
-import { useNavigate } from "react-router";
+import { Link, useNavigate } from "react-router";
 import { Skeleton } from "../UI/Skeleton";
 import { ROUTES } from "@/Main/App/MyRouter";
 import { useEffect } from "react";
@@ -69,6 +69,9 @@ export const Login = () => {
                         "Войти"
                     )}
                 </button>
+                <Link className="ButtonDarkgray" to={ROUTES.REGISTER}>
+                    Нет аккаунта
+                </Link>
             </div>
         </Skeleton>
     );

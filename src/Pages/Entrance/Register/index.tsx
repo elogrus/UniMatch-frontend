@@ -289,7 +289,7 @@ export const Register = () => {
             </div>
             <div className={styles.Buttons + " buttons"}>
                 {carouselPos === 0 && (
-                    <Link to={ROUTES.REGISTER} className="ButtonDarkgray">
+                    <Link to={ROUTES.LOGIN} className="ButtonDarkgray">
                         Уже есть аккаунт
                     </Link>
                 )}

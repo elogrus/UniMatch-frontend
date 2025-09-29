@@ -4,6 +4,12 @@
     }
 }
 
+@media (width < 1000px) {
+    .Register :global(.buttons) {
+        flex-direction: column-reverse !important;
+    }
+}
+
 .Buttons > *:not(:only-child) {
     width: 100%;
 }
