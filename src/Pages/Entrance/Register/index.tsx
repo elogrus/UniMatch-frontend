@@ -47,8 +47,7 @@ export const Register = () => {
 
     const forms = [form1, form2, form3, form4];
 
-    const [carouselPos, setCarouselPos] = useState(3);
-    // const [carouselPos, setCarouselPos] = useState(0);
+    const [carouselPos, setCarouselPos] = useState(0);
     const carouselRef = useRef<CarouselRef>(null);
     const updateUser = useUser((state) => state.updateUser);
     const navigate = useNavigate();
