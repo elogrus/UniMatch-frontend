@@ -4,6 +4,7 @@ import styles from "./styles.module.scss";
 import { classname } from "@/Base/Functions/classname";
 import { Link } from "react-router";
 import type { UserT } from "@/Modules/User/types";
+import { ROUTES } from "@/Main/App/MyRouter";
 
 interface BurgerNavbarProps extends HTMLAttributes<HTMLDivElement> {
     className: string;
@@ -34,13 +35,16 @@ export const BurgerNavbar = ({
                 />
                 <nav
                     onClick={(e) => {
-                        if ((e.target as Element).nodeName === 'A') setOpen(false);
+                        if ((e.target as Element).nodeName === "A")
+                            setOpen(false);
                     }}
                 >
                     {user ? (
                         <>
-                            <Link to="/matches">Мои мэтчи</Link>
-                            <Link to="/settings">Редактировать профиль</Link>
+                            <Link to={ROUTES.MATCHES}>Мои мэтчи</Link>
+                            <Link to={ROUTES.SETTINGS}>
+                                Редактировать профиль
+                            </Link>
                         </>
                     ) : (
                         <>

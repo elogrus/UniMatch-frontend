@@ -4,22 +4,21 @@ import styles from "./styles.module.scss";
 import { Navbar } from "./UI/Navbar";
 import { useUser } from "@/Modules/User/Store/useUser";
 import Photo from "@/Base/Assets/ebanutiyYasher.gif";
+import { useNavigate } from "react-router";
 
 export const Header = () => {
     const user = useUser();
+    const navigate = useNavigate()
     return (
         <header className={styles.Header}>
-            <div className={styles.Left}>
+            <div className={styles.Left} onClick={() => navigate('/')}>
                 <img className={styles.Logo} src={MiniLogo} />
                 <div className={styles.Separator}></div>
                 {user.isAuth ? (
                     <div className={styles.Panel}>
                         <img src={Photo} />
                         <span>
-                            {user.user.first_name} 
-                            {' '}
-                            {/* <br /> */}
-                            {/* {user.user.last_name} */}
+                            {user.user.first_name}
                         </span>
                     </div>
                 ) : (

@@ -21,7 +21,7 @@ export const http = ky.create({
             },
         ],
         afterResponse: [
-            async (request, options, response) => {
+            async (request, _options, response) => {
                 // если access устарел
                 if (response.status === 401) {
                     const res = await ky.post<{ access: string }>(
@@ -31,7 +31,7 @@ export const http = ky.create({
                             retry: 5,
                             hooks: {
                                 afterResponse: [
-                                    (req, opt, response) => {
+                                    (_req, _opt, response) => {
                                         // если рефреш устарел
                                         if (response.status === 401) {
                                             window.location.replace(ROUTES.LOGIN);
