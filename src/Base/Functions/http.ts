@@ -13,6 +13,7 @@ export const http = ky.create({
     prefixUrl: import.meta.env.VITE_BACKEND_URL,
     timeout: 10000,
     retry: 3,
+    credentials: "include",
     hooks: {
         beforeRequest: [
             (request) => {
@@ -29,12 +30,15 @@ export const http = ky.create({
                         {
                             prefixUrl: import.meta.env.VITE_BACKEND_URL,
                             retry: 5,
+                            credentials: "include",
                             hooks: {
                                 afterResponse: [
-                                    (_req, _opt, response) => {
+                                    async (_req, _opt, response) => {
                                         // если рефреш устарел
                                         if (response.status === 401) {
-                                            window.location.replace(ROUTES.LOGIN);
+                                            window.location.replace(
+                                                ROUTES.LOGIN
+                                            );
                                             localStorage.removeItem(
                                                 LocalStorage.TOKEN
                                             );

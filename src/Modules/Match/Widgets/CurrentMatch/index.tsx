@@ -3,6 +3,7 @@ import { useMatches } from "../../Store/useMatches";
 import Photo from "@/Base/Assets/ebanutiyYasher.gif";
 import styles from "./styles.module.scss";
 import { Spinner } from "@/Base/UI/Spinner";
+import { MyA } from "@/Base/UI/MyA";
 
 export const CurrentMatch = (props: HTMLAttributes<HTMLDivElement>) => {
     const currentMatch = useMatches((state) => state.currentPair);
@@ -34,7 +35,15 @@ export const CurrentMatch = (props: HTMLAttributes<HTMLDivElement>) => {
                                 </span>
                             )}
                         </ul>
-                        <button className="ButtonTblack">Общаться →</button>
+                        <MyA
+                            href={
+                                "https://t.me/" +
+                                currentMatch.partner.tg_link.slice(1)
+                            }
+                            className="ButtonTblack"
+                        >
+                            Общаться →
+                        </MyA>
                     </>
                 ) : wasLoaded ? (
                     <span className={styles.NoMatch}>Мэтча пока нет =(</span>

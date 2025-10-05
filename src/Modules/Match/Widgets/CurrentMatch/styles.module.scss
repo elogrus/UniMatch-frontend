@@ -7,7 +7,9 @@
     background-color: var(--PRIMARY_LIME);
     padding: var(--fz-h2);
     border-radius: var(--fz-h2);
-    button {
+    a {
+        display: inline-block;
+        color: var(--BG_DARKGRAY) !important;
         position: relative;
         bottom: 0;
         font-weight: 600;

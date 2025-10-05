@@ -12,6 +12,8 @@ import { useUser } from "@/Modules/User/Store/useUser";
 import { UserTagSelector } from "@/Modules/User/Widgets/UserTagSelector";
 import { useForm } from "react-hook-form";
 import styles from "./styles.module.scss";
+import { useNavigate } from "react-router";
+import { ROUTES } from "@/Main/App/MyRouter";
 
 export const Settings = () => {
     const user = useUser();
@@ -19,6 +21,7 @@ export const Settings = () => {
         // значения в react hook forms для массивов из инпутов всегда строковые, меняю их на числовые во время передачи данных какой-то функции
         Required<FetchUpdateUserParams & { hobby: string[] }>
     >();
+    const navigate = useNavigate();
     const { fetchData, error, isLoading } = useFetch({
         fetchFunc: fetchUpdateUser,
         onSuccess: user.updateUser,
@@ -106,6 +109,7 @@ export const Settings = () => {
                             ...data,
                             hobby: data.hobby.map((val) => +val),
                         });
+                        navigate(ROUTES.MATCHES);
                     })}
                     disabled={isLoading}
                 >

@@ -4,14 +4,33 @@ import { formatTime } from "./Functions/formatTime";
 import styles from "./styles.module.scss";
 import { Spinner } from "@/Base/UI/Spinner";
 import { useEffect } from "react";
+import { useMatches } from "../../Store/useMatches";
 
 export const NextMatch = () => {
-    const { response, fetchData } = useFetch({
+    const updateMatches = useMatches((state) => state.updateMatches);
+    const { response, isLoading, fetchData } = useFetch({
         fetchFunc: fetchNextMatchTime,
     });
     useEffect(() => {
         fetchData();
     }, []);
+    useEffect(() => {
+        if (!isLoading && response) {
+            const msBeforeMatch =
+                (response.days_left * 24 * 60 * 60 +
+                    response.hours_left * 60 * 60 +
+                    response.minutes_left * 60) *
+                1000;
+            console.log("setted timeout");
+            const timeout = setTimeout(() => {
+                updateMatches();
+            }, msBeforeMatch);
+            return () => {
+                clearTimeout(timeout);
+                console.log("cleared timeout");
+            };
+        }
+    }, [isLoading]);
     return (
         <div className={styles.Container}>
             <h2>Следующий мэтч</h2>
