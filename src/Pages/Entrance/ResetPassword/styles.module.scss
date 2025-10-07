@@ -1,7 +1,11 @@
 @media (width > 1000px) {
-    .Login {
+    .ResetPassword {
         background-image: url("./Assets/bg.png");
     }
+}
+
+.Buttons {
+    margin-top: 1em;
 }
 
 .Buttons > *:not(:only-child) {

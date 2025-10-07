@@ -225,7 +225,7 @@ export const Register = () => {
                             {...form3.register("password", {
                                 pattern: {
                                     // eslint-disable-next-line no-useless-escape
-                                    value: /^(?=.*[A-ZА-Я])(?=.*[a-zа-я])(?=.*\d)(?=.*[!@#\.,\/\$%\^&\*\(\)\\\-\_=\[\]{}:;"'<>\?]).*$/,
+                                    value: /^(?=.*[A-Za-z]).{4,}$/,
                                     message: ValidationErrors.password,
                                 },
                                 minLength: {

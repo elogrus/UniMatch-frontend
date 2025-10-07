@@ -34,10 +34,17 @@ export const useFetch = <T extends FetchFunc<any, any>>({
         try {
             setError("");
             const res = await fetchFunc(data);
-            const body = await res.json<FetchFuncResponse<typeof fetchFunc>>();
-            setResponse(body);
-            onSuccess(body, res);
-            return body;
+            if (res.bodyUsed) {
+                const body = await res.json<
+                    FetchFuncResponse<typeof fetchFunc>
+                >();
+                setResponse(body);
+                onSuccess(body, res);
+                return body;
+            } else {
+                onSuccess(undefined, res);
+                return undefined;
+            }
         } catch (error) {
             if (error instanceof Error) {
                 setError(error.message);
