@@ -9,17 +9,19 @@ import { ROUTES } from "@/Main/App/MyRouter";
 import { fetchResetPassword } from "@/Modules/User/Functions/fetchResetPassword";
 import { useEffect } from "react";
 import { useForm } from "react-hook-form";
-import { useNavigate, useParams } from "react-router";
+import { useNavigate } from "react-router";
 import { Skeleton } from "../UI/Skeleton";
+import { useParams } from "react-router";
 
 export const ResetPassword = () => {
     const navigate = useNavigate();
-    const { uid, token }: { uid: string; token: string } = useParams();
+    // { uid: string; token: string }
+    const params = useParams();
     const { fetchData, error, isLoading } = useFetch({
         fetchFunc: (data) =>
             fetchResetPassword({
-                token,
-                uid,
+                token: params.token || '',
+                uid: params.uid || '',
                 new_password: data.password,
             }),
         onSuccess: () => {
