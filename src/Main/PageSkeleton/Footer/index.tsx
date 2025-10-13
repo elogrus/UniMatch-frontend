@@ -12,7 +12,7 @@ export const Footer = () => {
                 <Link to="#">F.A.Q.</Link>
                 <Link to="https://disk.yandex.ru/d/DnB7luk2VxTXRQ">Правила</Link>
                 <Link to="https://disk.yandex.ru/d/DnB7luk2VxTXRQ">Политика конфидециальности</Link>
-                <Link to="#">Telegram бот</Link>
+                <Link to="https://t.me/unimatch_unit">Наш Telegram</Link>
                 <Link to="#">Поддержка</Link>
                 <span>support@unimatch.ru</span>
             </div>
