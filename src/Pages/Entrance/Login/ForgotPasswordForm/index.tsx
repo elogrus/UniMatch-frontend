@@ -3,7 +3,7 @@ import { useFetch } from "@/Base/Hooks/useFetch";
 import { MyInput } from "@/Base/UI/Inputs/MyInput";
 import { ROUTES } from "@/Main/App/MyRouter";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 
 import { Spinner } from "@/Base/UI/Spinner";
 import {
@@ -13,12 +13,14 @@ import {
 import defaultStyles from "../styles.module.scss";
 
 export const ForgotPasswordForm = () => {
+    const navigate = useNavigate();
     const { register, handleSubmit, formState } =
         useForm<FetchForgotPasswordParams>();
     const { fetchData, error, isLoading } = useFetch({
         fetchFunc: fetchForgotPassword,
         onSuccess: () => {
             alert("Вам на почту отправлена ссылка для сброса пароля.");
+            navigate(ROUTES.LOGIN);
         },
     });
     return (
