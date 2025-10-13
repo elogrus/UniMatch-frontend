@@ -18,6 +18,10 @@
         flex-direction: column;
         align-items: center;
         gap: 4em;
+        a {
+            color: var(--PRIMARY_WHITE);
+            text-decoration: none;
+        }
         color: var(--PRIMARY_WHITE);
         text-wrap: nowrap;
         & > *:not(:last-child) {
