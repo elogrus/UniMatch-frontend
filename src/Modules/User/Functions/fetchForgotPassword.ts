@@ -6,3 +6,4 @@ export interface FetchForgotPasswordParams {
 export const fetchForgotPassword = (params: FetchForgotPasswordParams) => {
     return http.post("api/auth/users/reset_password/", { json: params });
 };
+    
