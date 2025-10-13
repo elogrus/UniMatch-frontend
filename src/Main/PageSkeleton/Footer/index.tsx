@@ -10,11 +10,11 @@ export const Footer = () => {
             <div className={styles.Right}>
                 <Link to="#">О проекте</Link>
                 <Link to="#">F.A.Q.</Link>
-                <Link to="#">Правила</Link>
-                <Link to="#">Политика конфидециальности</Link>
+                <Link to="https://disk.yandex.ru/d/DnB7luk2VxTXRQ">Правила</Link>
+                <Link to="https://disk.yandex.ru/d/DnB7luk2VxTXRQ">Политика конфидециальности</Link>
                 <Link to="#">Telegram бот</Link>
                 <Link to="#">Поддержка</Link>
-                <Link to="#">Для разработчиков</Link>
+                <span>support@unimatch.ru</span>
             </div>
         </footer>
     );

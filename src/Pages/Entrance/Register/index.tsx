@@ -29,6 +29,7 @@ interface FormI extends FetchRegisterParams {
     confirmPassword: string;
     agreePrivacy: boolean;
     agreeTermsOfUse: boolean;
+    agreePersonalData: boolean;
 }
 
 const maxPosition = 4;
@@ -265,8 +266,11 @@ export const Register = () => {
                         >
                             Я согласен с{" "}
                             <MyA
-                                style={{ textDecoration: "underline" }}
-                                href="#"
+                                style={{
+                                    textDecoration: "underline",
+                                    color: "var(--PRIMARY_WHITE)",
+                                }}
+                                href="https://disk.yandex.ru/i/xm39S7Dbhbb47w"
                             >
                                 Условиями пользования
                             </MyA>
@@ -278,10 +282,29 @@ export const Register = () => {
                         >
                             Я согласен с{" "}
                             <MyA
-                                style={{ textDecoration: "underline" }}
-                                href="#"
+                                style={{
+                                    textDecoration: "underline",
+                                    color: "var(--PRIMARY_WHITE)",
+                                }}
+                                href="https://disk.yandex.ru/i/cgcSSO2nW5AowA"
                             >
                                 Политикой конфиденциальности
+                            </MyA>
+                        </MyCheckbox>
+                        <MyCheckbox
+                            {...form4.register("agreePersonalData", {
+                                required: ValidationErrors.required,
+                            })}
+                        >
+                            Я согласен с{" "}
+                            <MyA
+                                style={{
+                                    textDecoration: "underline",
+                                    color: "var(--PRIMARY_WHITE)",
+                                }}
+                                href="https://disk.yandex.ru/i/0Pk2pxJl4mJOmg"
+                            >
+                                Политикой обработки персональных данных
                             </MyA>
                         </MyCheckbox>
                     </div>
