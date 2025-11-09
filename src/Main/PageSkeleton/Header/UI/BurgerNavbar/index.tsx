@@ -6,6 +6,7 @@ import { Link } from "react-router";
 import type { UserT } from "@/Modules/User/types";
 import { ROUTES } from "@/Main/App/MyRouter";
 import { useUser } from "@/Modules/User/Store/useUser";
+import { clearToken } from "@/Modules/User/Functions/saveToken";
 
 interface BurgerNavbarProps extends HTMLAttributes<HTMLDivElement> {
     className: string;
@@ -46,7 +47,13 @@ export const BurgerNavbar = ({
                             <Link to={ROUTES.SETTINGS}>
                                 Редактировать профиль
                             </Link>
-                            <Link to={ROUTES.SETTINGS} onClick={logout}>
+                            <Link
+                                to={ROUTES.SETTINGS}
+                                onClick={() => {
+                                    logout();
+                                    clearToken();
+                                }}
+                            >
                                 Выйти
                             </Link>
                         </>

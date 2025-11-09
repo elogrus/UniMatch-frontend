@@ -6,6 +6,7 @@ import { classname } from "@/Base/Functions/classname";
 import type { UserT } from "@/Modules/User/types";
 import { ROUTES } from "@/Main/App/MyRouter";
 import { useUser } from "@/Modules/User/Store/useUser";
+import { clearToken } from "@/Modules/User/Functions/saveToken";
 
 interface NavbarProps extends HTMLAttributes<HTMLDivElement> {
     className: string;
@@ -20,7 +21,13 @@ export const Navbar = ({ className, user, ...otherProps }: NavbarProps) => {
                 <>
                     <Link to={ROUTES.MATCHES}>Мои мэтчи</Link>
                     <Link to={ROUTES.SETTINGS}>Редактировать профиль</Link>
-                    <Link to={ROUTES.INDEX} onClick={logout}>
+                    <Link
+                        to={ROUTES.INDEX}
+                        onClick={() => {
+                            logout();
+                            clearToken();
+                        }}
+                    >
                         Выйти
                     </Link>
                 </>
