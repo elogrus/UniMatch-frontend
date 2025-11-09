@@ -1,15 +1,15 @@
 import { LocalStorage } from "@/Base/Variables/localstorage";
 import { Login } from "@/Pages/Entrance/Login";
+import { ForgotPasswordForm } from "@/Pages/Entrance/Login/ForgotPasswordForm";
+import { MainForm } from "@/Pages/Entrance/Login/MainForm";
 import { Register } from "@/Pages/Entrance/Register";
+import { ResetPassword } from "@/Pages/Entrance/ResetPassword";
 import { About } from "@/Pages/Landings/About";
 import { Index } from "@/Pages/Landings/Index";
 import { Matches } from "@/Pages/Matches";
 import { Settings } from "@/Pages/Settings";
 import { Navigate, Outlet, Route, Routes } from "react-router";
 import { PageSkeleton } from "../PageSkeleton";
-import { MainForm } from "@/Pages/Entrance/Login/MainForm";
-import { ForgotPasswordForm } from "@/Pages/Entrance/Login/ForgotPasswordForm";
-import { ResetPassword } from "@/Pages/Entrance/ResetPassword";
 
 export const ROUTES = {
     INDEX: "/",

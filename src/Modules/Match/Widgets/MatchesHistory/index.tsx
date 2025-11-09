@@ -3,6 +3,7 @@ import { useMatches } from "../../Store/useMatches";
 import Photo from "./Assets/photo.gif";
 import styles from "./styles.module.scss";
 import { useState, type HTMLAttributes } from "react";
+import { MyA } from "@/Base/UI/MyA";
 
 export const MatchesHistory = (props: HTMLAttributes<HTMLDivElement>) => {
     const matches = useMatches();
@@ -24,10 +25,16 @@ export const MatchesHistory = (props: HTMLAttributes<HTMLDivElement>) => {
                         return (
                             <li key={match.id}>
                                 <img className={styles.Image} src={Photo} />
-                                <div className={styles.Name}>
+                                <MyA
+                                    className={styles.Name}
+                                    href={
+                                        "https://t.me/" +
+                                        match.partner.tg_link.slice(1)
+                                    }
+                                >
                                     {match.partner.first_name}{" "}
                                     {match.partner.last_name}
-                                </div>
+                                </MyA>
                                 <div className={styles.Tags}>
                                     {match.partner.hobby.reduce(
                                         (prev, { name }) => {

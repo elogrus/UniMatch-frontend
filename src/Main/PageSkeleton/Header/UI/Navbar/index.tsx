@@ -5,6 +5,7 @@ import type { HTMLAttributes } from "react";
 import { classname } from "@/Base/Functions/classname";
 import type { UserT } from "@/Modules/User/types";
 import { ROUTES } from "@/Main/App/MyRouter";
+import { useUser } from "@/Modules/User/Store/useUser";
 
 interface NavbarProps extends HTMLAttributes<HTMLDivElement> {
     className: string;
@@ -12,12 +13,16 @@ interface NavbarProps extends HTMLAttributes<HTMLDivElement> {
 }
 
 export const Navbar = ({ className, user, ...otherProps }: NavbarProps) => {
+    const logout = useUser((state) => state.clear);
     return (
         <nav className={classname(className, styles.Navbar)} {...otherProps}>
             {user ? (
                 <>
                     <Link to={ROUTES.MATCHES}>Мои мэтчи</Link>
                     <Link to={ROUTES.SETTINGS}>Редактировать профиль</Link>
+                    <Link to={ROUTES.INDEX} onClick={logout}>
+                        Выйти
+                    </Link>
                 </>
             ) : (
                 <>
